@@ -6,8 +6,8 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components'
 // import { AuthContextProvider } from 'contexts/AuthContext'
 // import GlobalSpinnerContextProvider from 'contexts/GlobalSpinnerContext'
 // import { ShoppingCartContextProvider } from 'contexts/ShoppingCartContext'
-// import { theme } from 'themes'
-// import type { ApiContext } from 'types'
+import { theme } from '../themes'
+import type { ApiContext } from '../types/data.d'
 // import { fetcher } from 'utils'
 
 // グローバルのスタイル
