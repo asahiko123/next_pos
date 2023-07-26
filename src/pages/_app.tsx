@@ -8,6 +8,11 @@ import { SWRConfig } from 'swr'
 // import { ShoppingCartContextProvider } from 'contexts/ShoppingCartContext'
 import { theme } from '../themes'
 import type { ApiContext } from '../types/data.d'
+import GlobalSpinner from 'components/organisms/GlobalSpinner'
+import { AuthContextProvider } from 'contexts/AuthContext'
+import GlobalSpinnerContextProvider from 'contexts/GlobalSpinnerContext'
+import { fetcher } from 'utils'
+import { BillCardListContextProvider } from 'contexts/BillCardListContext'
 // import { fetcher } from 'utils'
 
 // グローバルのスタイル
@@ -73,12 +78,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           }}
         >
           <GlobalSpinnerContextProvider>
-            <ShoppingCartContextProvider>
+            <BillCardListContextProvider>
               <AuthContextProvider context={context}>
                 <GlobalSpinner />
                 <Component {...pageProps} />
               </AuthContextProvider>
-            </ShoppingCartContextProvider>
+            </BillCardListContextProvider>
           </GlobalSpinnerContextProvider>
         </SWRConfig>
       </ThemeProvider>
