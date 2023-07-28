@@ -10,23 +10,28 @@ const context: ApiContext = {
 }
 
 interface BillCardListContainerProps {
-  raitenId: number
-  dayId: number
+  raitenId?: number
+  dayId?: number
 }
 
 const BillCardListContainer = ({
   raitenId,
   dayId,
 }: BillCardListContainerProps) => {
-  const [bills, setBills] = useState<Bill[]>([])
+  // const [bills, setBills] = useState<Bill[]>([])
 
-  useEffect(() => {
-    const fetchBills = async () => {
-      const allBills = await getAllBills(context, { raitenId })
-      setBills(allBills)
-    }
-    fetchBills()
-  }, [raitenId])
+  // useEffect(() => {
+  //   const fetchBills = async () => {
+  //     const allBills = await getAllBills(context, { raitenId })
+  //     setBills(allBills)
+  //   }
+  //   fetchBills()
+  // }, [raitenId])
+
+  const { bills: bills} = useSearch(context,{
+    raitenId,
+    initial: bills,
+  })
 
   return (
     <BillCardList numberPerRow={6}>

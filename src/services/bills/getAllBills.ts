@@ -11,7 +11,7 @@ const getAllBills = async (
   context: ApiContext,
   { raitenId, order, initial }: GetAllBillsParams = {},
 ): Promise<Bill[]> => {
-  const path = `${context.apiRootUrl.replace(/\/$/g, '')}/bills`
+  const path = `${context.apiRootUrl.replace(/\/$/g, '')}/board`
   const params = new URLSearchParams()
 
   raitenId && params.append('raitenId', `${raitenId}`)

@@ -12,13 +12,13 @@ import { useAuthContext } from 'contexts/AuthContext'
 
 const HeaderRoot = styled.header`
   height: 88px;
-  padding: ${({ theme }) => theme.space[2]} 0px;
+  padding: ${({ theme }) => theme.small} 0px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `
 
 const Nav = styled(Flex)`
   & > span:not(:first-child) {
-    margin-left: ${({ theme }) => theme.space[2]};
+    margin-left: ${({ theme }) => theme.small};
   }
 `
 

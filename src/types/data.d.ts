@@ -21,6 +21,7 @@ export type Bill = {
   blurDataUrl: string
   price: number
   condition: Condition
+  valid: boolean,
   owner: User
 }
 
