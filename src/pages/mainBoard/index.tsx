@@ -10,7 +10,7 @@ import { ApiContext } from "types";
 
 type MainBoardProps = InferGetStaticPropsType<typeof getStaticProps>
 
-const MainBoard: NextPage<MainBoardProps> = () => {
+const MainBoard: NextPage<MainBoardProps> = ({ bills }) => {
 
     return(
         <Layout>
@@ -22,7 +22,7 @@ const MainBoard: NextPage<MainBoardProps> = () => {
                 justifyContent = "center">
                     <Box width="1180px">
                         <Box marginBottom={2}>
-                            <BillCardListContainer  />
+                            <BillCardListContainer bills={bills}/>
                         </Box>
                     </Box>
                 </Flex>
@@ -33,11 +33,11 @@ const MainBoard: NextPage<MainBoardProps> = () => {
 
 export const getStaticProps  = async({params}: GetStaticPropsContext) => {
     const context :ApiContext = {
-        apiRootUrl: process.env.API_BASE_URL || 'http://localhost:3000'
+        apiRootUrl: process.env.API_BASE_URL || 'http://localhost:8000'
     }
 
 
-    const [bills] = await getAllBills(context)
+    const bills = await getAllBills(context)
 
 
     return{

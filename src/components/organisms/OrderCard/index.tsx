@@ -6,9 +6,8 @@ import Box from 'components/layout/Box'
 interface OrderCardProps {
   raitenId: number
   dayId: number
-  order: string
   price: number
-  imageUrl: string
+  imageUrl?: string
   blurDataUrl?: string
   variant?: 'listing' | 'small' | 'detail'
 }
@@ -31,7 +30,6 @@ const OrderCardInfo = styled.div`
 const OrderCard = ({
   raitenId,
   dayId,
-  order,
   price,
   imageUrl,
   blurDataUrl,
@@ -65,7 +63,7 @@ const OrderCard = ({
               paddingTop={0}
               paddingBottom={0}
             >
-              {order}
+              {raitenId}
             </Text>
             <Text
               as="span"
@@ -84,7 +82,7 @@ const OrderCard = ({
         </OrderCardInfo>
       )}
       <OrderCardImageContainer>
-        {blurDataUrl && (
+        {blurDataUrl && imageUrl && (
           <ScaleImage
             src={imageUrl}
             width={imgSize ?? 240}
@@ -97,7 +95,7 @@ const OrderCard = ({
             alt={''}
           />
         )}
-        {!blurDataUrl && (
+        {!blurDataUrl && imageUrl &&(
           <ScaleImage
             src={imageUrl}
             width={imgSize ?? 240}
@@ -113,9 +111,6 @@ const OrderCard = ({
         <Box marginTop={1}>
           <Text as="h1" variant="medium" margin={0} padding={0}>
             {raitenId}
-          </Text>
-          <Text as="h2" variant="medium" margin={0} padding={0}>
-            {order}
           </Text>
           <Text as="span" variant="medium">
             {price}円

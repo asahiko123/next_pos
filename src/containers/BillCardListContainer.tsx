@@ -3,6 +3,7 @@ import { useState, useEffect, Fragment } from 'react'
 import OrderCard from '../components/organisms/OrderCard'
 import BillCardList from 'components/organisms/BillCardList'
 import getAllBills from 'services/bills/getAllBills'
+import useSearch from 'services/bills/useSearch'
 import { ApiContext, Bill } from 'types'
 
 const context: ApiContext = {
@@ -12,11 +13,13 @@ const context: ApiContext = {
 interface BillCardListContainerProps {
   raitenId?: number
   dayId?: number
+  bills?: Bill[]
 }
 
 const BillCardListContainer = ({
   raitenId,
   dayId,
+  bills,
 }: BillCardListContainerProps) => {
   // const [bills, setBills] = useState<Bill[]>([])
 
@@ -28,25 +31,20 @@ const BillCardListContainer = ({
   //   fetchBills()
   // }, [raitenId])
 
-  const { bills: bills} = useSearch(context,{
-    raitenId,
-    initial: bills,
-  })
+
 
   return (
     <BillCardList numberPerRow={6}>
-      {bills.map((bill) => (
+      
+      {bills && bills.map((bill) => (
         <Fragment key={bill.raitenId}>
           <Link href={`/bills/${bill.raitenId}`}>
-            <a>
               <OrderCard
                 raitenId={bill.raitenId}
                 dayId={bill.dayId}
-                order={bill.order}
                 price={bill.price}
                 imageUrl={bill.imageUrl}
               />
-            </a>
           </Link>
         </Fragment>
       ))}

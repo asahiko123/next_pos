@@ -13,16 +13,39 @@ export type User = {
 export type Bill = {
   id: number
   raitenId: number
-  dayId: number
-  category: string
-  order: string
-  description: string
-  imageUrl: string
-  blurDataUrl: string
-  price: number
-  condition: Condition
-  valid: boolean,
-  owner: User
+  dayId: number,
+  description: string,
+  category: string,
+  imageUrl?: string,
+  price: number,
+  condition: string,
+  order: {
+    raitenId?: number,
+    dayId?: number,
+    orderList?: [
+        {
+            drink: string,
+            hostess_id: number,
+            price: number
+        }
+    ],
+    bottleList?: [
+        {
+            bottle: string,
+            hostess_id: number,
+            price : number
+        }
+    ]
+  },
+  owner: {
+    id: number,
+    username: string,
+    displayName: string,
+    email: string,
+    profileImageUrl: string,
+    description: string
+  }
+  
 }
 
 export type ApiContext = {

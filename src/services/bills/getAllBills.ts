@@ -9,13 +9,13 @@ export type GetAllBillsParams = {
 
 const getAllBills = async (
   context: ApiContext,
-  { raitenId, order, initial }: GetAllBillsParams = {},
+  { raitenId }: GetAllBillsParams = {},
 ): Promise<Bill[]> => {
-  const path = `${context.apiRootUrl.replace(/\/$/g, '')}/board`
+  const path = `${context.apiRootUrl.replace(/\/$/g, '')}/bills`
+
   const params = new URLSearchParams()
 
   raitenId && params.append('raitenId', `${raitenId}`)
-  order && params.append('order', order)
   const query = params.toString()
 
   return await fetcher(query.length > 0 ? `${path}?${query}` : path, {
