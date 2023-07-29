@@ -9,11 +9,13 @@ interface OrderCardProps {
   price: number
   imageUrl?: string
   blurDataUrl?: string
-  variant?: 'listing' | 'small' | 'detail'
+  variant?: 'listing' | 'small' | 'detail' | 'nomal'
 }
 
 const OrderCardContainer = styled.div`
   position: relative;
+  top: 0px;
+  left: 0px;
 `
 
 const OrderCardImageContainer = styled.div`
@@ -33,7 +35,7 @@ const OrderCard = ({
   price,
   imageUrl,
   blurDataUrl,
-  variant = 'listing',
+  variant = 'nomal',
 }: OrderCardProps) => {
   const { size, imgSize } = (() => {
     switch (variant) {
@@ -41,6 +43,8 @@ const OrderCard = ({
         return { size: { base: '320px', md: '540px' }, imgSize: 540 }
       case 'listing':
         return { size: { base: '160px', md: '240px' }, imgSize: 240 }
+      case 'nomal':
+        return { size: { base: '150px', md: '150px'}, imgSize: 150}
       default:
         return { size: { base: '160px' }, imgSize: 160 }
     }

@@ -20,12 +20,12 @@ const MainBoard: NextPage<MainBoardProps> = ({ bills }) => {
                 paddingLeft={{ base:2 , md: 0}}
                 paddingRight={{ base:2, md: 0}}
                 justifyContent = "center">
-                    <Box width="1180px">
-                        <Box marginBottom={2}>
-                            <BillCardListContainer bills={bills}/>
-                        </Box>
+                <Box width="1180px">
+                    <Box marginBottom={2}>
+                        <BillCardListContainer bills={bills}/>
                     </Box>
-                </Flex>
+                </Box>
+            </Flex>
         </Layout>
     )
 }

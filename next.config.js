@@ -17,6 +17,9 @@ const nextConfig = {
 
     return compilerConfig
   })(),
+  images: {
+    domains: [`placehold.jp`]
+  },
   async rewrites() {
     return [
       {

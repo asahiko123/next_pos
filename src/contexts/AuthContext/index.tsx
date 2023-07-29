@@ -41,7 +41,7 @@ export const AuthContextProvider = ({
   children,
 }: React.PropsWithChildren<AuthContextProviderProps>) => {
   const { data, error, mutate } = useSWR<User>(
-    `${context.apiRootUrl.replace(/\/$/g, '')}/users/me`,
+    `${context.apiRootUrl.replace(/\/$/g, '')}`,
   )
   const isLoading = !data && !error
 

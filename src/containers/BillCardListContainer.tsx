@@ -21,15 +21,6 @@ const BillCardListContainer = ({
   dayId,
   bills,
 }: BillCardListContainerProps) => {
-  // const [bills, setBills] = useState<Bill[]>([])
-
-  // useEffect(() => {
-  //   const fetchBills = async () => {
-  //     const allBills = await getAllBills(context, { raitenId })
-  //     setBills(allBills)
-  //   }
-  //   fetchBills()
-  // }, [raitenId])
 
 
 
