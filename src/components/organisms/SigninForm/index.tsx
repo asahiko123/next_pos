@@ -1,3 +1,4 @@
+import Box from 'components/layout/Box'
 import { useForm } from 'react-hook-form'
 
 export type SigninFormData = {

@@ -5,38 +5,40 @@ import BillCardList from 'components/organisms/BillCardList'
 import getAllBills from 'services/bills/getAllBills'
 import useSearch from 'services/bills/useSearch'
 import { ApiContext, Bill } from 'types'
+import { useSelectedBill } from 'contexts/SelectedBillContext'
+import Box from 'components/layout/Box'
 
 const context: ApiContext = {
   apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || 'api/proxy',
 }
 
 interface BillCardListContainerProps {
-  raitenId?: number
-  dayId?: number
   bills?: Bill[]
 }
 
 const BillCardListContainer = ({
-  raitenId,
-  dayId,
   bills,
 }: BillCardListContainerProps) => {
 
+  const { selectedBill , setSelectedBill } = useSelectedBill()
 
+  useEffect(() => {
+    console.log(selectedBill)
+  },[selectedBill])
 
   return (
     <BillCardList numberPerRow={6}>
       
-      {bills && bills.map((bill) => (
-        <Fragment key={bill.raitenId}>
-          <Link href={`/bills/${bill.raitenId}`}>
+      {bills && bills.map((bill,index) => (
+        <Fragment key={`${bill.raitenId}-${index}`}>
+          <Box onClick={ () => {setSelectedBill(bill);console.log('clicked')}} key={`${bill.raitenId}-${index}`}>
               <OrderCard
                 raitenId={bill.raitenId}
                 dayId={bill.dayId}
                 price={bill.price}
                 imageUrl={bill.imageUrl}
               />
-          </Link>
+          </Box>
         </Fragment>
       ))}
     </BillCardList>

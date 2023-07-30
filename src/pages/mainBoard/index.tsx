@@ -1,32 +1,41 @@
 import Box  from "components/layout/Box";
 import Flex from "components/layout/Flex";
+import Grid from "components/layout/Grid";
 import Layout from "components/templates/Layout";
 import BillCardListContainer from "containers/BillCardListContainer";
+import PaymentDetailContainer from "containers/PaymentDetailContainer";
+import { SelectedBillContextProvider, useSelectedBill } from "contexts/SelectedBillContext";
 import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from "next";
+import { useEffect } from "react";
 import getAllBills from "services/bills/getAllBills";
 import { ApiContext } from "types";
-
 
 
 type MainBoardProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const MainBoard: NextPage<MainBoardProps> = ({ bills }) => {
 
+
+
     return(
+        <SelectedBillContextProvider>
         <Layout>
             <Flex
                 paddingTop={2}
                 paddingBottom={2}
                 paddingLeft={{ base:2 , md: 0}}
                 paddingRight={{ base:2, md: 0}}
-                justifyContent = "center">
-                <Box width="1180px">
-                    <Box marginBottom={2}>
-                        <BillCardListContainer bills={bills}/>
+                justifyContent = "space-between">
+                    <Box marginBottom={2}
+                         width={{ base: '100%', md: '100%'}}>
+                            <BillCardListContainer bills={bills}/>
                     </Box>
-                </Box>
+                    <Box width={{ base: '50%', md: '50%'}}>
+                            <PaymentDetailContainer />
+                    </Box>
             </Flex>
         </Layout>
+        </SelectedBillContextProvider>
     )
 }
 
