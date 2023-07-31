@@ -12,16 +12,24 @@ const BottleList = ({
     
    
     return(
-        <Flex>
+        <Flex flexDirection={{ base: 'column', md: 'column'}}>
+            <Text 
+                as="h4"
+            >
+                { 'ボトル' }
+            </Text>
             {
                 bill?.order?.bottleList?.map((bottle,index) => (
-                   <Text 
-                        as="span"
-                        fontSize={{ base: 'small', md: 'medium'}}
-                        key={ `${bill.order.raitenId}-${index}` || 'undefined'}
+                   <Flex flexDirection={{ base: 'column', md: 'column'}}
                     >
-                        { bottle.bottle }
-                    </Text>
+                        <Text 
+                            as="span"
+                            fontSize={{ base: 'small', md: 'medium'}}
+                            key={ `${bill.order.raitenId}-${index}` || 'undefined'}
+                        >
+                            { bottle.bottle }
+                        </Text>
+                    </Flex>
                 ))
             }
         </Flex>

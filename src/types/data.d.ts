@@ -12,6 +12,7 @@ export type User = {
 
 export type Bill = {
   id: number
+  table: string,
   raitenId: number
   dayId: number,
   description: string,

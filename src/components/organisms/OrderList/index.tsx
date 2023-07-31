@@ -12,9 +12,13 @@ const OrderList = ({
     
    
     return(
-        <Flex>
+        <Flex flexDirection={{ base: 'column', md: 'column'}}>
+            <Text as="h4">
+            { 'オーダー' }
+            </Text>
             { 
                 bill?.order?.orderList?.map((order,index) => (
+                    
                     <Text 
                         as="span"
                         fontSize={{ base: 'small', md: 'medium'}}
@@ -22,6 +26,7 @@ const OrderList = ({
                     >
                         { order.drink }
                     </Text>
+                
                 ))
             }
         </Flex>

@@ -9,6 +9,7 @@ const HeaderRoot = styled.header`
   height: 88px;
   padding: ${({ theme }) => theme.small} 0px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  opacity:0.8;
 `
 
 interface PaymentDetailHeaderProps {
@@ -27,7 +28,7 @@ const PaymentDetailHeader = ({
                         as="h2"
                         fontSize={{ base: 'medium', md: 'mediumLarge'}}
                     >
-                        { 'テーブル：' }
+                        { `テーブル： ${bill?.table}` }
                     </Text>
                     <Text
                         as="span"
