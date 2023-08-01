@@ -20,6 +20,10 @@ export type Bill = {
   imageUrl?: string,
   price: number,
   condition: string,
+  cource: {
+    basic_cource: string,
+    numberOfPeople: number,
+  },
   order: {
     raitenId?: number,
     dayId?: number,

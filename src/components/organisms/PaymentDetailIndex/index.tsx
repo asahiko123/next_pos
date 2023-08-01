@@ -4,6 +4,7 @@ import { Bill } from "types"
 import BottleList from "../BottleList"
 import { useSelectedBill } from "contexts/SelectedBillContext"
 import OrderList from "../OrderList"
+import CourceList from "../CourceList"
 
 interface PaymentDetailIndexProps {
     bill: Bill | null
@@ -17,6 +18,11 @@ const PaymentDetailIndex = ({
     return(
         <Flex 
             flexDirection={{ base: 'column', md: 'column'}}>
+                <Box
+                >
+                    <CourceList bill={bill}/>
+                </Box>
+
                 <Box
                 >
                     <OrderList bill={bill}/>

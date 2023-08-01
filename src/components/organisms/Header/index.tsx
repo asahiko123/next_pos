@@ -43,7 +43,7 @@ const Header = () => {
     <HeaderRoot>
       <Flex paddingLeft={3} paddingRight={3} justifyContent="space-between">
         <Nav as="nav" height="56px" alignItems="center">
-          <NavLink>
+          {/* <NavLink>
             <Link href="/" passHref>
               <Anchor as="a">
                 <AppLogo />
@@ -124,7 +124,7 @@ const Header = () => {
             <Link href="/sell" passHref>
               <Button as="a">出品</Button>
             </Link>
-          </NavLink>
+          </NavLink> */}
         </Nav>
       </Flex>
     </HeaderRoot>

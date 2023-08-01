@@ -2,10 +2,12 @@ import styled from 'styled-components'
 import ScaleImage from 'components/atoms/ScaleImage'
 import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
+import { table } from 'console'
 
 interface OrderCardProps {
   raitenId: number
   dayId: number
+  table: string
   price: number
   imageUrl?: string
   blurDataUrl?: string
@@ -32,6 +34,7 @@ const OrderCardInfo = styled.div`
 const OrderCard = ({
   raitenId,
   dayId,
+  table,
   price,
   imageUrl,
   blurDataUrl,
@@ -67,7 +70,7 @@ const OrderCard = ({
               paddingTop={0}
               paddingBottom={0}
             >
-              {raitenId}
+              {table}
             </Text>
             <Text
               as="span"

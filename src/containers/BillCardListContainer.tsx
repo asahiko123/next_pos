@@ -37,6 +37,7 @@ const BillCardListContainer = ({
                 dayId={bill.dayId}
                 price={bill.price}
                 imageUrl={bill.imageUrl}
+                table={bill.table}
               />
           </Box>
         </Fragment>

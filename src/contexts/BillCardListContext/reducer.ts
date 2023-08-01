@@ -66,6 +66,6 @@ export const billReducer : React.Reducer<Bill[],BillReducerAction> = (
             return updateBill(action.payload,state)
         default: 
             return state
-    }
+            }
 
 }
