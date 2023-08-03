@@ -3,21 +3,16 @@ import { fetcher } from "utils"
 
 export type UpdateBillParams = {
     raitenId: number,
-    data: {}
+    data: Bill
 }
 
 const updateBill = async (
     context : ApiContext,
     { raitenId }: UpdateBillParams,
-    data : {}
+    data : Bill
 ): Promise<Bill> => {
-    const path =  `${context.apiRootUrl.replace(/\/$/g,'')}/bills`
-    const params = new URLSearchParams()
+    const path =  `${context.apiRootUrl.replace(/\/$/g,'')}/bills/${data.id}`
     const updateData =  data
-
-    params.append('raitenId',`${raitenId}`)
-
-    const query = params.toString()
 
     return await fetcher(path,{
         method: "PUT",

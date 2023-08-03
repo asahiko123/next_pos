@@ -31,7 +31,7 @@ const BillCardListContainer = ({
       
       {bills && bills.map((bill,index) => (
         <Fragment key={`${bill.raitenId}-${index}`}>
-          <Box onClick={ () => {setSelectedBill(bill);console.log('clicked')}} key={`${bill.raitenId}-${index}`}>
+          <Box onClick={ () => {setSelectedBill(bill);}} key={`${bill.raitenId}-${index}`}>
               <OrderCard
                 raitenId={bill.raitenId}
                 dayId={bill.dayId}
