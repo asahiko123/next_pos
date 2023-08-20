@@ -56,3 +56,13 @@ export type Bill = {
 export type ApiContext = {
   apiRootUrl: string
 }
+
+
+export type CourceOptions = {
+  value: string,
+  label: string,
+}
+
+export interface CalculatorKeysOptions{
+  value: number,
+}
