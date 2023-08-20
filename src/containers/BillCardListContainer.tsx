@@ -7,6 +7,8 @@ import useSearch from 'services/bills/useSearch'
 import { ApiContext, Bill } from 'types'
 import { useSelectedBill } from 'contexts/SelectedBillContext'
 import Box from 'components/layout/Box'
+import Panel from 'components/molecules/Panel'
+import Modal from 'components/molecules/Modal'
 
 const context: ApiContext = {
   apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || 'api/proxy',
@@ -21,6 +23,8 @@ const BillCardListContainer = ({
 }: BillCardListContainerProps) => {
 
   const { selectedBill , setSelectedBill } = useSelectedBill()
+ 
+ 
 
   useEffect(() => {
     console.log(selectedBill)
@@ -31,7 +35,7 @@ const BillCardListContainer = ({
       
       {bills && bills.map((bill,index) => (
         <Fragment key={`${bill.raitenId}-${index}`}>
-          <Box onClick={ () => {setSelectedBill(bill);}} key={`${bill.raitenId}-${index}`}>
+          <Box onClick={ (e) => {setSelectedBill(bill);}} key={`${bill.raitenId}-${index}`}>
               <OrderCard
                 raitenId={bill.raitenId}
                 dayId={bill.dayId}
@@ -42,6 +46,7 @@ const BillCardListContainer = ({
           </Box>
         </Fragment>
       ))}
+
     </BillCardList>
   )
 }

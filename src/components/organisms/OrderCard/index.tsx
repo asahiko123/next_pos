@@ -18,6 +18,7 @@ const OrderCardContainer = styled.div`
   position: relative;
   top: 0px;
   left: 0px;
+  
 `
 
 const OrderCardImageContainer = styled.div`
@@ -39,6 +40,7 @@ const OrderCard = ({
   imageUrl,
   blurDataUrl,
   variant = 'nomal',
+
 }: OrderCardProps) => {
   const { size, imgSize } = (() => {
     switch (variant) {

@@ -15,15 +15,15 @@ const ModalContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: $screen-padding;
+    // padding: $screen-padding;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
-    animation: fadeon 0.3s ease 0s;
-    > * {
-    width: 100%;
-    max-width: 480px;
-    margin: auto;
-    animation: scaleon 0.25s ease-out 0s;
+    // animation: fadeon 0.3s ease 0s;
+    // > * {
+    // width: 100%;
+    // max-width: 480px;
+    // margin: auto;
+    // animation: scaleon 0.25s ease-out 0s;
 `
 
 
@@ -33,19 +33,19 @@ export interface ModalProps {
 }
 
 const Modal = (props: ModalProps) => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isMouseDown, setIsMouseDown] = useState(false)
 
     const onMouseDown = (e: any) => {
         if(e.target === e.currentTarget){
-            setIsOpen(true)
+            setIsMouseDown(true)
         }
     }
 
     const onMouseUp = (e: any) => {
-        if(isOpen){
+        if(isMouseDown){
             props.onClose(e) 
         }
-        setIsOpen(false)
+        setIsMouseDown(false)
     }
 
 

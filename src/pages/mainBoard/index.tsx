@@ -1,12 +1,14 @@
+import { Modal } from "@mui/material";
 import Box  from "components/layout/Box";
 import Flex from "components/layout/Flex";
 import Grid from "components/layout/Grid";
+import Panel from "components/molecules/Panel";
 import Layout from "components/templates/Layout";
 import BillCardListContainer from "containers/BillCardListContainer";
 import PaymentDetailContainer from "containers/PaymentDetailContainer";
 import { SelectedBillContextProvider, useSelectedBill } from "contexts/SelectedBillContext";
 import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from "next";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import getAllBills from "services/bills/getAllBills";
 import { ApiContext } from "types";
 
@@ -25,7 +27,8 @@ const MainBoard: NextPage<MainBoardProps> = ({ bills }) => {
                 paddingBottom={2}
                 paddingLeft={{ base:2 , md: 0}}
                 paddingRight={{ base:2, md: 0}}
-                justifyContent = "space-between">
+                justifyContent = "space-between"
+                id="portal">
                     <Box marginBottom={2}
                          width={{ base: '100%', md: '100%'}}>
                             <BillCardListContainer bills={bills}/>
@@ -33,6 +36,7 @@ const MainBoard: NextPage<MainBoardProps> = ({ bills }) => {
                     <Box width={{ base: '50%', md: '50%'}}>
                             <PaymentDetailContainer />
                     </Box>
+                    
             </Flex>
         </Layout>
         </SelectedBillContextProvider>
