@@ -54,7 +54,7 @@ const FlexElement = styled.div`
 
 type PanelProps = {
     onClose?: (e: any) => void,
-    bill: Bill | null
+    bill: Bill
 }
 const Panel = (props: PanelProps) => {
 
@@ -70,7 +70,7 @@ const Panel = (props: PanelProps) => {
     return(
         <PanelContainer>
             <header>
-                <h3>テーブル : {props.bill?.table}</h3>
+                <h3>テーブル : {props.bill.table}</h3>
             </header>
             <Flex
                 flexDirection={{ base: 'row', md: 'row'}}

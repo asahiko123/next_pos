@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import Panel from 'components/molecules/Panel'
 import Modal from 'components/molecules/Modal'
 import { useSelectedBill } from 'contexts/SelectedBillContext'
+import Alert from 'components/molecules/Alert'
 
 const Anchor = styled(Text)`
   cursor: pointer;
@@ -103,11 +104,18 @@ const Footer = () => {
       <Box paddingTop={3} paddingBottom={2}>
         <Text>© 2021 Gijutsuhyoronsha Co., Ltd.. All rights reserved.</Text>
       </Box>
-      {isOpenModal && (
+      {isOpenModal && selectedBill && (
         <Modal onClose={toggleModal}>
           <Panel onClose={toggleModal} bill={selectedBill}/>
         </Modal>
       )}
+      {
+        isOpenModal && !selectedBill && (
+          <Modal onClose={toggleModal}>
+            <Alert onClose={toggleModal}/>
+          </Modal>
+        )
+      }
       
     </footer>
   )
