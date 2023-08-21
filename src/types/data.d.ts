@@ -66,3 +66,7 @@ export type CourceOptions = {
 export interface CalculatorKeysOptions{
   value: number,
 }
+
+export type ResetKey = {
+  value: string
+}

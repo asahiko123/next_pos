@@ -45,17 +45,23 @@ const calculator = () => {
             setAdditionalInput(input*10+key)
         }
     }
+
+    const resetKeyPressed = (key: string) => {
+        setInput(0)
+        setOperator(null)
+        setAdditionalInput(0)
+    }
     
 
     return(
         <Flex flexDirection={{ base: 'column', md: 'column'}}> 
             <Box className="input">
                 <DisplayContainer>
-                    {
+                        {
                         `${input}
                          ${operator === null ? "": operator}
                          ${operator === null ? "": additionalInput}`
-                    }
+                        }
                 </DisplayContainer>
             </Box>
             <Box className="numbers">
@@ -69,6 +75,12 @@ const calculator = () => {
                         )
                     })
                 }
+                {
+                     
+                    <button onClick={() => resetKeyPressed("C")}>C</button>
+                    
+                }
+                
                 </CalculatorKeyContainer>
             </Box>
         </Flex>
