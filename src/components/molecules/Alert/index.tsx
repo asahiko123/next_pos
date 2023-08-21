@@ -4,7 +4,8 @@ import styled from "styled-components"
 import themes from "../../../themes"
 import Box from "components/layout/Box"
 import Flex from "components/layout/Flex"
-import WarningSign from "components/atoms/WarningSign"
+import WarningSign from "components/atoms/Warning"
+import Warning from "components/atoms/Warning"
 
 const AlertContainer = styled.div`
 position: relative;
@@ -34,9 +35,8 @@ const Alert = (props: AlertProps) => {
     return(
         <AlertContainer>
             <Flex justifyContent="center" alignItems="center" height="100%" flexDirection="column">
-                <Flex alignItems="center" width="100%" height="70%" flexDirection="row" >
-                    <WarningSign/>
-                    <div>テーブルを選択していません。<br></br>卓を選択してからもう一度お試しください。</div>
+                <Flex justifyContent="center" alignItems="center" width="100%" height="70%" flexDirection="row" >
+                    <Warning/>
                 </Flex>
                 <Button type="button" onClick={props.onClose}>閉じる</Button>
             </Flex>
