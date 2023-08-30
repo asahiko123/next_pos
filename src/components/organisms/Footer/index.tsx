@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import { GitHubIcon } from 'components/atoms/IconButton'
 import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
 import Flex from 'components/layout/Flex'
@@ -10,6 +9,7 @@ import Panel from 'components/molecules/Panel'
 import Modal from 'components/molecules/Modal'
 import { useSelectedBill } from 'contexts/SelectedBillContext'
 import Alert from 'components/molecules/Alert'
+import { footerMenu } from 'utils/data'
 
 const Anchor = styled(Text)`
   cursor: pointer;
@@ -25,12 +25,18 @@ const Anchor = styled(Text)`
 const Footer = () => {
 
   const [ isOpenModal , setIsOpenModal ] = useState(false)
+  const [ componentType , setComponentType ] = useState('')
+ 
 
   const toggleModal = (e:React.MouseEvent) => {
     console.log("toggle called")
     if(e.target === e.currentTarget){
       setIsOpenModal(!isOpenModal)
     }
+  }
+
+  const getComponentType = (type: string ) => {
+      setComponentType(type)
   }
 
   useEffect(() => {
@@ -96,7 +102,14 @@ const Footer = () => {
               <GitHubIcon size={22} />
             </Anchor> */}
 
-            <Button onClick={(e) => toggleModal(e)}>基本コース選択</Button>
+          {footerMenu &&
+            footerMenu.map((menu,index) => {
+              return(
+                <Button onClick={(e) =>{toggleModal(e); getComponentType(menu.value)}} key={`${menu.value}-${index}`} marginRight={'10px'}>{ menu.value }</Button>
+              )
+            })
+          }
+
             
           </nav>
         </Box>
@@ -106,7 +119,7 @@ const Footer = () => {
       </Box>
       {isOpenModal && selectedBill && (
         <Modal onClose={toggleModal}>
-          <Panel onClose={toggleModal} bill={selectedBill}/>
+          <Panel onClose={toggleModal} bill={selectedBill} componentType={componentType} />
         </Modal>
       )}
       {

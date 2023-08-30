@@ -70,3 +70,33 @@ export interface CalculatorKeysOptions{
 export type ResetKey = {
   value: string
 }
+
+export type FooterMenuOptions = {
+  value : string
+}
+
+export type HostessOptions = {
+  hostess_id : string,
+  hostess_name: string,
+}
+
+export type ComponentMap = {
+  type : string,
+  components: [
+    {type: string, component: React.FC},
+    {type: string, component: React.FC}
+  ]
+}
+
+export type Order = {
+  order_id: string,
+  order_menu: string 
+}
+
+
+export type ListProps = [
+  {
+    id: string,
+    content: string
+  }
+]

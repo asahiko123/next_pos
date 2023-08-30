@@ -1,13 +1,9 @@
-import Select from 'react-select'
-import makeAnimated from 'react-select/animated'
 import Button from "components/atoms/Button"
 import Flex from "components/layout/Flex"
 import styled from "styled-components"
 import themes from "../../../themes"
-import { Bill } from "types/data"
-import Box from "components/layout/Box"
-import { courceOptions } from 'utils/data'
-import Calculator from 'components/organisms/Calculator'
+import { Bill, ComponentMap } from "types/data"
+import { componentMap } from "utils/data"
 
 const PanelContainer = styled.div`
 position: relative;
@@ -54,7 +50,8 @@ const FlexElement = styled.div`
 
 type PanelProps = {
     onClose?: (e: any) => void,
-    bill: Bill
+    bill: Bill,
+    componentType: string
 }
 const Panel = (props: PanelProps) => {
 
@@ -64,8 +61,10 @@ const Panel = (props: PanelProps) => {
             props.onClose(e)
         }
     }
+    
+    const findComponent = componentMap.find((el) => el.type === props.componentType )
 
-    const animatedComponents = makeAnimated();
+
 
     return(
         <PanelContainer>
@@ -75,17 +74,16 @@ const Panel = (props: PanelProps) => {
             <Flex
                 flexDirection={{ base: 'row', md: 'row'}}
                 height="70%">
-                        <FlexElement>
-                            <Calculator />
-                        </FlexElement>
-                        <FlexElement>
-                            <Select 
-                                closeMenuOnSelect={false}
-                                components={animatedComponents}
-                                defaultValue={[courceOptions[0]]}
-                                isMulti
-                                options={courceOptions}/>
-                        </FlexElement>
+                       {findComponent && findComponent.components.map((el) => {
+
+                        const TargetComponent = el.component
+                        
+                        return(
+                            <FlexElement> 
+                                <TargetComponent /> 
+                            </FlexElement>
+                        )
+                       })}
             </Flex>
             <footer>
                 <Button type="button" onClick={props.onClose}>閉じる</Button>
