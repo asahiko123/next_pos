@@ -1,8 +1,9 @@
 import list from "components/molecules/List"
 import calculator from "components/organisms/Calculator"
+import menuBoard from "components/organisms/MenuBoard"
 import OrderList from "components/organisms/OrderList"
 import selector from 'components/organisms/Selector'
-import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, Order } from "types"
+import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, Order } from "types"
 
 
 export const courceOptions: CourceOptions[] = [
@@ -22,6 +23,24 @@ export const calculatorKeys: CalculatorKeysOptions[] = [
     { value: 8},
     { value: 9},
 ]
+
+
+export const menuBoardKeys: MenuBoardKeysOptions[] = [
+    { order: 'ゲストドリンク1000'},
+    { order: 'ゲストドリンク2000'},
+    { order: 'ゲストドリンク1500'},
+    { order: 'チーズ盛り合わせ'},
+    { order: 'ココナッツ'},
+    { order: 'ヴーヴイエロー'},
+    { order: 'おかき'},
+    { order: 'バナナ'},
+    { order: 'たこやき'},
+    { order: 'V.O.'},
+    { order: '白ワイン'},
+    { order: '赤ワイン'},
+    { order: 'ドン・ぺリニオン'},
+    { order: '酎ハイ'}
+] 
 
 
 export const footerMenu: FooterMenuOptions[] = [
@@ -58,7 +77,7 @@ export const componentMap: ComponentMap[] = [
     {
         type: 'オーダー',
         components: [
-            { type: 'calculator', component: calculator},
+            { type: 'menuBoard', component: menuBoard},
             { type: 'orderList', component: list},
         ] 
     }

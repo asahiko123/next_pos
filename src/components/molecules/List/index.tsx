@@ -15,7 +15,7 @@ const list = () => {
             <Text 
                 as="h4"
             >
-                { 'ボトル' }
+                { 'オーダー' }
             </Text>
             {
                 selectedBill?.order?.orderList?.map((order,index) => (

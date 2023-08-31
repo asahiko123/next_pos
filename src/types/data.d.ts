@@ -67,6 +67,10 @@ export interface CalculatorKeysOptions{
   value: number,
 }
 
+export type MenuBoardKeysOptions = {
+  order: string
+}
+
 export type ResetKey = {
   value: string
 }
