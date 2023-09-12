@@ -1,14 +1,13 @@
 import Box from "components/layout/Box"
 import Flex from "components/layout/Flex"
 import Text from 'components/atoms/Text'
-import { Bill } from "types"
+import { useSelectedBill } from "contexts/SelectedBillContext"
 
-interface BottleListProps {
-    bill: Bill | null
-}
-const bottleList= ({
-    bill
-}: BottleListProps) => {
+
+const nominationList = () => {
+
+    
+  const { selectedBill } = useSelectedBill()
     
    
     return(
@@ -16,18 +15,18 @@ const bottleList= ({
             <Text 
                 as="h4"
             >
-                { 'ボトル' }
+                { '指名' }
             </Text>
             {
-                bill?.order?.bottleList?.map((bottle,index) => (
+                selectedBill?.order?.orderList?.map((order,index) => (
                    <Flex flexDirection={{ base: 'column', md: 'column'}}
                     >
                         <Text 
                             as="span"
                             fontSize={{ base: 'small', md: 'medium'}}
-                            key={ `${bill.order.raitenId}-${index}` || 'undefined'}
+                            key={ `${selectedBill.order.raitenId}-${index}` || 'undefined'}
                         >
-                            { bottle.bottle }
+                            { order.drink }
                         </Text>
                     </Flex>
                 ))
@@ -37,4 +36,4 @@ const bottleList= ({
 }
 
 
-export default bottleList
+export default nominationList

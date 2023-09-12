@@ -11,6 +11,8 @@ import { Bill } from "types"
 const PaymentDetailContainer  = () => {
 
     const { selectedBill } = useSelectedBill()
+
+      /* 伝票内容の詳細画面 */
     
     return(
         <PaymentDetail>

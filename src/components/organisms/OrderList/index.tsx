@@ -6,7 +6,7 @@ import { Bill } from "types"
 interface OrderListProps {
     bill: Bill | null
 }
-const OrderList = ({
+const orderList = ({
     bill
 }: OrderListProps) => {
     
@@ -34,4 +34,4 @@ const OrderList = ({
 }
 
 
-export default OrderList
+export default orderList

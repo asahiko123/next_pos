@@ -1,14 +1,9 @@
-import Link from 'next/link'
-import { useState, useEffect, Fragment } from 'react'
+import { useEffect, Fragment } from 'react'
 import OrderCard from '../components/organisms/OrderCard'
 import BillCardList from 'components/organisms/BillCardList'
-import getAllBills from 'services/bills/getAllBills'
-import useSearch from 'services/bills/useSearch'
 import { ApiContext, Bill } from 'types'
 import { useSelectedBill } from 'contexts/SelectedBillContext'
 import Box from 'components/layout/Box'
-import Panel from 'components/molecules/Panel'
-import Modal from 'components/molecules/Modal'
 
 const context: ApiContext = {
   apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || 'api/proxy',
@@ -24,11 +19,12 @@ const BillCardListContainer = ({
 
   const { selectedBill , setSelectedBill } = useSelectedBill()
  
- 
 
   useEffect(() => {
     console.log(selectedBill)
   },[selectedBill])
+
+  /* 伝票一覧 */
 
   return (
     <BillCardList numberPerRow={6}>

@@ -1,4 +1,4 @@
-import React, { useReducer } from "react"
+import React, { useContext, useReducer } from "react"
 import { Bill } from "types"
 import { ADD_BILL, REMOVE_BILL, UPDATE_BILL, billReducer } from "./reducer"
 
@@ -18,9 +18,18 @@ const BillCardListContext = React.createContext<BillCardListContextType>({
 
 })
 
+/* 伝票を追加、削除、更新するロジックを使いまわす為のコンテキスト */
+
+export const useBillCardListContext = ():BillCardListContextType  => {
+    return useContext<BillCardListContextType>(BillCardListContext)
+}
+
 interface BillCardListContextProviderProps {
     children?: React.ReactNode
 }
+
+
+/* 伝票を追加、または削除、または更新する機能を提供するコンポーネント */
 
 export const BillCardListContextProvider = ({
     children,

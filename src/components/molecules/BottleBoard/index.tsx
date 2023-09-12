@@ -4,7 +4,7 @@ import Text from 'components/atoms/Text'
 import { useSelectedBill } from "contexts/SelectedBillContext"
 
 
-const list = () => {
+const bottleBoard = () => {
 
     
   const { selectedBill } = useSelectedBill()
@@ -15,7 +15,7 @@ const list = () => {
             <Text 
                 as="h4"
             >
-                { 'オーダー' }
+                { 'ボトル' }
             </Text>
             {
                 selectedBill?.order?.orderList?.map((order,index) => (
@@ -36,4 +36,4 @@ const list = () => {
 }
 
 
-export default list
+export default bottleBoard
