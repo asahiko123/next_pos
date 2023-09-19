@@ -13,7 +13,7 @@ const signin = async (
   return await fetcher(
     `${context.apiRootUrl.replace(/\/$/g, '')}/auth/signin`,
     {
-      method: ' POST ',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },

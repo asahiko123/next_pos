@@ -10,13 +10,8 @@ import Modal from 'components/molecules/Modal'
 import { useSelectedBill } from 'contexts/SelectedBillContext'
 import Alert from 'components/molecules/Alert'
 import { footerMenu } from 'utils/data'
+import { useAuthContext } from 'contexts/AuthContext'
 
-const Anchor = styled(Text)`
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
-`
 
 
 /**
@@ -24,8 +19,10 @@ const Anchor = styled(Text)`
  */
 const Footer = () => {
 
+
   const [ isOpenModal , setIsOpenModal ] = useState(false)
   const [ componentType , setComponentType ] = useState('')
+  const { authUser } = useAuthContext()
  
 
   const toggleModal = (e:React.MouseEvent) => {
@@ -44,65 +41,18 @@ const Footer = () => {
   },[isOpenModal])
 
   const { selectedBill } = useSelectedBill()
+
+  
   
   return (
     <footer>
       <Flex flexDirection={{ base: 'column', md: 'row' }}>
-        <Box
-          minWidth={{ base: '100%', md: '120px' }}
-          paddingRight={{ base: 0, md: 1 }}
-        >
-          <nav>
-            <Box marginBottom={2}>
-              <Link href="/" passHref>
-                {/* <Anchor as="a">トップ</Anchor> */}
-              </Link>
-            </Box>
-            <Box marginBottom={2}>
-              <Link href="/" passHref>
-                {/* <Anchor as="a">採用</Anchor> */}
-              </Link>
-            </Box>
-            <Box marginBottom={2}>
-              <Link href="/" passHref>
-                {/* <Anchor as="a">お知らせ</Anchor> */}
-              </Link>
-            </Box>
-          </nav>
-        </Box>
-        <Box
-          minWidth={{ base: '100%', md: '120px' }}
-          paddingRight={{ base: 0, md: 1 }}
-        >
-          <nav>
-            <Box marginBottom={2}>
-              <Link href="/" passHref>
-                {/* <Anchor as="a">利用規約</Anchor> */}
-              </Link>
-            </Box>
-            <Box marginBottom={2}>
-              <Link href="/" passHref>
-                {/* <Anchor as="a">プライバシーポリシー</Anchor> */}
-              </Link>
-            </Box>
-            <Box marginBottom={2}>
-              <Link href="/" passHref>
-                {/* <Anchor as="a">配送と返品</Anchor> */}
-              </Link>
-            </Box>
-          </nav>
-        </Box>
+        
         <Box minWidth={{ base: '100%', md: '120px' }}>
           <nav>
-            {/* <Anchor
-              as="a"
-              href="https://github.com/gihyo-book/ts-nextbook-app"
-              target="_blank"
-            >
-              <GitHubIcon size={22} />
-            </Anchor> */}
+           
 
-          {footerMenu &&
+          {authUser && footerMenu &&
             footerMenu.map((menu,index) => {
               return(
                 <Button onClick={(e) =>{toggleModal(e); getComponentType(menu.value)}} key={`${menu.value}-${index}`} marginRight={'10px'}>{ menu.value }</Button>

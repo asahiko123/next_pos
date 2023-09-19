@@ -7,7 +7,7 @@ import menuBoard from "components/organisms/MenuBoard"
 import nominationBoard from "components/organisms/NominationList"
 import OrderList from "components/organisms/OrderList"
 import selector from 'components/organisms/Selector'
-import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, Order } from "types"
+import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, Order} from "types"
 
 
 export const courceOptions: CourceOptions[] = [
@@ -125,5 +125,7 @@ export const orderMenu: Order[] = [
         order_menu: 'ミックスナッツ'
     }
 ]
+
+
 
 
