@@ -41,6 +41,13 @@ export type Bill = {
             hostess_id: number,
             price : number
         }
+    ],
+    nominationList?:[
+        {
+            nomination: string,
+            hostess_id: number,
+            price: number
+        }
     ]
   },
   owner: {

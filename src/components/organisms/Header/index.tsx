@@ -1,15 +1,11 @@
-  import Link from 'next/link'
+
   import styled from 'styled-components'
-  import AppLogo from 'components/atoms/AppLogo'
-  import Button from 'components/atoms/Button'
-  import { SearchIcon, PersonIcon } from 'components/atoms/IconButton'
   import ShapeImage from 'components/atoms/ShapeImage'
-  import Spinner from 'components/atoms/Spinner'
   import Text from 'components/atoms/Text'
-  import Box from 'components/layout/Box'
   import Flex from 'components/layout/Flex'
   import { useAuthContext } from 'contexts/AuthContext'
 import SignOutButtonContainer from 'containers/SignOutButtonContainer'
+import Box from 'components/layout/Box'
 
   const HeaderRoot = styled.header`
     height: 88px;
@@ -38,7 +34,9 @@ import SignOutButtonContainer from 'containers/SignOutButtonContainer'
    * ヘッダー
    */
   const Header = () => {
-    const { authUser, isLoading } = useAuthContext()
+    const { authUser, isLoading} = useAuthContext()
+
+    
 
     return (
       <HeaderRoot>
@@ -48,6 +46,10 @@ import SignOutButtonContainer from 'containers/SignOutButtonContainer'
 
             <NavLink>
               {(() => {
+
+                console.log(authUser)
+                
+              
                 if (authUser) {
                   return (
                     <Flex flexDirection="row">
@@ -65,9 +67,8 @@ import SignOutButtonContainer from 'containers/SignOutButtonContainer'
                       </Flex>            
                     </Flex>
                   )
-                } else{
-
                 }
+                
               })()}
 
             

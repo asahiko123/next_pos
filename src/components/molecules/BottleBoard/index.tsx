@@ -18,7 +18,7 @@ const bottleBoard = () => {
                 { 'ボトル' }
             </Text>
             {
-                selectedBill?.order?.orderList?.map((order,index) => (
+                selectedBill?.order?.bottleList?.map((bottle,index) => (
                    <Flex flexDirection={{ base: 'column', md: 'column'}}
                     >
                         <Text 
@@ -26,7 +26,7 @@ const bottleBoard = () => {
                             fontSize={{ base: 'small', md: 'medium'}}
                             key={ `${selectedBill.order.raitenId}-${index}` || 'undefined'}
                         >
-                            { order.drink }
+                            { bottle.bottle }
                         </Text>
                     </Flex>
                 ))

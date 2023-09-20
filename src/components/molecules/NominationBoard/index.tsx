@@ -18,7 +18,7 @@ const nominationList = () => {
                 { '指名' }
             </Text>
             {
-                selectedBill?.order?.orderList?.map((order,index) => (
+                selectedBill?.order?.nominationList?.map((nomination,index) => (
                    <Flex flexDirection={{ base: 'column', md: 'column'}}
                     >
                         <Text 
@@ -26,7 +26,7 @@ const nominationList = () => {
                             fontSize={{ base: 'small', md: 'medium'}}
                             key={ `${selectedBill.order.raitenId}-${index}` || 'undefined'}
                         >
-                            { order.drink }
+                            { nomination.nomination } { nomination.price}
                         </Text>
                     </Flex>
                 ))
