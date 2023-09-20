@@ -25,9 +25,22 @@ export type Bill = {
     basic_cource: string,
     numberOfPeople: number,
   },
+  extensionCource: {
+    extension_cource: string,
+    price: number
+  },
+  entryTime: string,
+  closingTime: string,
   order: {
     raitenId?: number,
     dayId?: number,
+    serviceDrinkList?:[
+        {
+            drink: string,
+            hostess_id: number,
+            price: number
+        }
+    ],
     orderList?: [
         {
             drink: string,

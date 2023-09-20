@@ -1,10 +1,10 @@
 
 import bottleBoard from "components/molecules/BottleBoard"
-import nominationList from "components/molecules/NominationBoard"
+import nominationList from "components/organisms/NominationList"
 import orderBoard from "components/molecules/OrderBoard"
 import calculator from "components/organisms/Calculator"
 import menuBoard from "components/organisms/MenuBoard"
-import nominationBoard from "components/organisms/NominationList"
+import nominationBoard from "components/molecules/NominationBoard"
 import OrderList from "components/organisms/OrderList"
 import selector from 'components/organisms/Selector'
 import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, Order} from "types"
@@ -95,7 +95,7 @@ export const componentMap: ComponentMap[] = [
     {
         type: '指名',
         components: [
-            { type: 'nomination',component: nominationBoard},
+            { type: 'nominationBoard',component: nominationBoard},
             { type: 'nominationList',component: nominationList}
         ]
     }

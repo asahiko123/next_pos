@@ -16,7 +16,7 @@ const CourceList = ({
             <Text 
                 as="h4"
             >
-                { 'コース' }
+                { '基本料金' }
             </Text>
             {
                 bill && (
