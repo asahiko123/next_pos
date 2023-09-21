@@ -34,34 +34,38 @@ export type Bill = {
   order: {
     raitenId?: number,
     dayId?: number,
-    serviceDrinkList?:[
+    serviceDrinkList?:
         {
+            id: number,
             drink: string,
             hostess_id: number,
             price: number
-        }
-    ],
-    orderList?: [
+        }[]
+    ,
+    orderList?: 
         {
+            id: number,
             drink: string,
             hostess_id: number,
             price: number
-        }
-    ],
-    bottleList?: [
-        {
+        }[]
+    ,
+    bottleList?: 
+        {   
+            id: number,
             bottle: string,
             hostess_id: number,
             price : number
-        }
-    ],
-    nominationList?:[
+        }[]
+    ,
+    nominationList?:
         {
+            id: number,
             nomination: string,
             hostess_id: number,
             price: number
-        }
-    ]
+        }[]
+    
   },
   owner: {
     id: number,
@@ -89,7 +93,8 @@ export interface CalculatorKeysOptions{
 }
 
 export type MenuBoardKeysOptions = {
-  order: string
+  order: string,
+  price: number
 }
 
 export type ResetKey = {

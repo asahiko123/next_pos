@@ -30,20 +30,20 @@ export const calculatorKeys: CalculatorKeysOptions[] = [
 
 
 export const menuBoardKeys: MenuBoardKeysOptions[] = [
-    { order: 'ゲストドリンク1000'},
-    { order: 'ゲストドリンク2000'},
-    { order: 'ゲストドリンク1500'},
-    { order: 'チーズ盛り合わせ'},
-    { order: 'ココナッツ'},
-    { order: 'ヴーヴイエロー'},
-    { order: 'おかき'},
-    { order: 'バナナ'},
-    { order: 'たこやき'},
-    { order: 'V.O.'},
-    { order: '白ワイン'},
-    { order: '赤ワイン'},
-    { order: 'ドン・ぺリニオン'},
-    { order: '酎ハイ'}
+    { order: 'ゲストドリンク1000',price: 1000},
+    { order: 'ゲストドリンク2000',price: 2000},
+    { order: 'ゲストドリンク1500',price: 3000},
+    { order: 'チーズ盛り合わせ',price: 2000},
+    { order: 'ココナッツ',price: 1000},
+    { order: 'ヴーヴイエロー',price: 20000},
+    { order: 'おかき', price: 4000},
+    { order: 'バナナ', price: 2000},
+    { order: 'たこやき', price:1500},
+    { order: 'V.O.', price: 2000},
+    { order: '白ワイン', price: 1500},
+    { order: '赤ワイン', price: 1000},
+    { order: 'ドン・ぺリニオン',price: 500},
+    { order: '酎ハイ',price: 1500}
 ] 
 
 

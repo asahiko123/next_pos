@@ -6,6 +6,8 @@
   import { useAuthContext } from 'contexts/AuthContext'
 import SignOutButtonContainer from 'containers/SignOutButtonContainer'
 import Box from 'components/layout/Box'
+import Spinner from 'components/atoms/Spinner'
+import Link from 'next/link'
 
   const HeaderRoot = styled.header`
     height: 88px;
@@ -67,6 +69,24 @@ import Box from 'components/layout/Box'
                       </Flex>            
                     </Flex>
                   )
+                }
+                else if(isLoading){
+                  return(
+                    <Spinner size={20} strokeWidth={2} />
+                  )
+                } else {
+                  <Link href="/signin" passHref >
+                    <Anchor as="a">
+                    <ShapeImage
+                            shape="circle"
+                            src={'https://placehold.jp/50x50.png'}
+                            width={50}
+                            height={50}
+                            data-testid="profile-shape-image"
+                            alt={''}
+                          />
+                    </Anchor>
+                  </Link>
                 }
                 
               })()}

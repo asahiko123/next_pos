@@ -1,9 +1,12 @@
 import Button from "components/atoms/Button"
 import Box from "components/layout/Box"
 import Flex from "components/layout/Flex"
+import { useBillCardListContext } from "contexts/BillCardListContext"
+import { useSelectedBill } from "contexts/SelectedBillContext"
 import { useState } from "react"
 import styled from "styled-components"
 import theme from "themes"
+import { MenuBoardKeysOptions } from "types"
 import { calculatorKeys, menuBoardKeys } from "utils/data"
 
 
@@ -29,10 +32,30 @@ const MenuBoardContainer = styled.div`
 const menuBoard = () => {
 
     const [ input, setInput ] = useState('')
+    const { selectedBill, setSelectedBill } = useSelectedBill()
+    const { updateBill } = useBillCardListContext()
 
-    const keyPressed = (key: string) => {
-            setInput(key)
-            console.log(input)
+    const keyPressed = (key: MenuBoardKeysOptions) => {
+            const newOrder = { id: 3, drink: key.order, hostess_id: 12, price: key.price}
+            
+
+            if(selectedBill){
+                const orderList = selectedBill?.order?.orderList ?? []
+                const newOrderList = [...orderList, newOrder]
+                console.log('hello')
+                
+                
+               const updatedBill = {
+                ...selectedBill,
+                order:{
+                    ...selectedBill.order,
+                    orderList: newOrderList
+                }
+               }
+
+               updateBill(updatedBill)
+               setSelectedBill(updatedBill)
+            }
     }
 
     const resetKeyPressed = (key: string) => {
@@ -48,8 +71,8 @@ const menuBoard = () => {
                 {
                     menuBoardKeys.map((el,index) => {
                         return (
-                            <button key={`${el.order}-${index}`} onClick={() => keyPressed(el.order)}>
-                                {el.order}
+                            <button key={`${el.order}-${index}`} onClick={() => keyPressed(el)}>
+                                {el.order} 
                             </button>
                         )
                     })
