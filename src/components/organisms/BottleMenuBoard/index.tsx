@@ -7,7 +7,7 @@ import { useState } from "react"
 import styled from "styled-components"
 import theme from "themes"
 import { MenuBoardKeysOptions } from "types"
-import { calculatorKeys, menuBoardKeys } from "utils/data"
+import { calculatorKeys, bottleBoardKeys } from "utils/data"
 
 
 const MenuBoardContainer = styled.div`
@@ -29,19 +29,19 @@ const MenuBoardContainer = styled.div`
 `
 
 
-const menuBoard = () => {
+const bottleMenuBoard = () => {
 
     const [ input, setInput ] = useState('')
     const { selectedBill, setSelectedBill } = useSelectedBill()
     const { updateBill } = useBillCardListContext()
 
     const keyPressed = (key: MenuBoardKeysOptions) => {
-            const newOrder = { id: 3, drink: key.order, hostess_id: 12, price: key.price}
+            const newBottle = { id: 3, bottle: key.order, hostess_id: 12, price: key.price}
             
 
             if(selectedBill){
-                const orderList = selectedBill?.order?.orderList ?? []
-                const newOrderList = [...orderList, newOrder]
+                const bottleList = selectedBill?.order?.bottleList ?? []
+                const newBottleList = [...bottleList, newBottle]
                 console.log('hello')
                 
                 
@@ -49,7 +49,7 @@ const menuBoard = () => {
                 ...selectedBill,
                 order:{
                     ...selectedBill.order,
-                    orderList: newOrderList
+                    bottleList: newBottleList
                 }
                }
 
@@ -69,7 +69,7 @@ const menuBoard = () => {
             <Box className="numbers">
                 <MenuBoardContainer>
                 {
-                    menuBoardKeys.map((el,index) => {
+                    bottleBoardKeys.map((el,index) => {
                         return (
                             <button key={`${el.order}-${index}`} onClick={() => keyPressed(el)}>
                                 {el.order} 
@@ -90,4 +90,4 @@ const menuBoard = () => {
 
 }
 
-export default menuBoard
+export default bottleMenuBoard

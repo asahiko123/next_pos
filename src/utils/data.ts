@@ -3,11 +3,13 @@ import bottleBoard from "components/molecules/BottleBoard"
 import nominationList from "components/organisms/NominationList"
 import orderBoard from "components/molecules/OrderBoard"
 import calculator from "components/organisms/Calculator"
-import menuBoard from "components/organisms/MenuBoard"
+import menuBoard from "components/organisms/OrderMenuBoard"
 import nominationBoard from "components/molecules/NominationBoard"
 import OrderList from "components/organisms/OrderList"
 import selector from 'components/organisms/Selector'
 import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, Order} from "types"
+import BottleMenuBoard from "components/organisms/BottleMenuBoard"
+import OrderMenuBoard from "components/organisms/OrderMenuBoard"
 
 
 export const courceOptions: CourceOptions[] = [
@@ -29,7 +31,7 @@ export const calculatorKeys: CalculatorKeysOptions[] = [
 ]
 
 
-export const menuBoardKeys: MenuBoardKeysOptions[] = [
+export const orderBoardKeys: MenuBoardKeysOptions[] = [
     { order: 'ゲストドリンク1000',price: 1000},
     { order: 'ゲストドリンク2000',price: 2000},
     { order: 'ゲストドリンク1500',price: 3000},
@@ -39,6 +41,23 @@ export const menuBoardKeys: MenuBoardKeysOptions[] = [
     { order: 'おかき', price: 4000},
     { order: 'バナナ', price: 2000},
     { order: 'たこやき', price:1500},
+    { order: 'V.O.', price: 2000},
+    { order: '白ワイン', price: 1500},
+    { order: '赤ワイン', price: 1000},
+    { order: 'ドン・ぺリニオン',price: 500},
+    { order: '酎ハイ',price: 1500}
+] 
+
+export const bottleBoardKeys: MenuBoardKeysOptions[] = [
+    { order: 'いいちこ',price: 1000},
+    { order: '黒霧島',price: 2000},
+    { order: '四日市',price: 3000},
+    { order: '泡盛',price: 2000},
+    { order: 'ジャックダニエル',price: 1000},
+    { order: 'ヴーヴイエロー',price: 20000},
+    { order: 'ジャンパン', price: 4000},
+    { order: 'モーツアルト', price: 2000},
+    { order: 'ワイルドターキー', price:1500},
     { order: 'V.O.', price: 2000},
     { order: '白ワイン', price: 1500},
     { order: '赤ワイン', price: 1000},
@@ -81,14 +100,14 @@ export const componentMap: ComponentMap[] = [
     {
         type: 'オーダー',
         components: [
-            { type: 'menuBoard', component: menuBoard},
+            { type: 'menuBoard', component: OrderMenuBoard},
             { type: 'orderList', component: orderBoard},
         ] 
     },
     {
         type: 'ボトル',
         components: [
-            { type: 'menuBoard', component: menuBoard},
+            { type: 'menuBoard', component: BottleMenuBoard},
             { type: 'bottleList', component: bottleBoard}
         ]
     },
