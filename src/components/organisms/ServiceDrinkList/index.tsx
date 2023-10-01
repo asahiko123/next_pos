@@ -2,6 +2,7 @@ import Flex from "components/layout/Flex"
 import Text from 'components/atoms/Text'
 import { Bill } from "types"
 import styled from "styled-components"
+import calcBillCharges from "services/bills/calcBillCharges"
 
 const ServiceDrinkBoarder = styled.div`
   padding: ${({ theme }) => theme.small} 0px;
@@ -42,9 +43,19 @@ const ServiceDrinkList = ({
                     ))
                 }
                 <ServiceDrinkBoarder />
-                <Text as="h4">
-                { 'ドリンク料金' } { '見本 円'}
-            </Text>
+                <Flex>
+                    
+                    <Text 
+                        as="h4"
+                        margin={{ base: 'small', md: 'medium'}}>
+                        { 'ドリンク料金' } 
+                    </Text>
+
+                    <Text
+                    margin={{ base: 'small', md: 'medium'}}>
+                        { calcBillCharges({type: "serviceDrink"})?.serviceDrinkTotal }
+                    </Text>
+                </Flex>
         </Flex>
     )
 }

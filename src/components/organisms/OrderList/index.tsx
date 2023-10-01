@@ -3,6 +3,7 @@ import Flex from "components/layout/Flex"
 import Text from 'components/atoms/Text'
 import { Bill } from "types"
 import styled from "styled-components"
+import calcBillCharges from "services/bills/calcBillCharges"
 
 const OrderBoarder = styled.div`
   padding: ${({ theme }) => theme.small} 0px;
@@ -50,9 +51,16 @@ const orderList = ({
                 ))
             }
             <OrderBoarder />
-            <Text as="h4">
+            <Flex flexDirection="row">
+            <Text as="h4"
+                margin={{ base: 'small', md: 'medium'}}>
                 { 'オーダー料金' }
             </Text>
+            <Text
+                margin={{ base: 'small', md: 'medium'}}>
+                { calcBillCharges({type: "order"})?.orderTotal }
+            </Text>
+            </Flex>
         </Flex>
     )
 }

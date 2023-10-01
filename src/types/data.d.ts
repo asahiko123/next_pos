@@ -118,6 +118,14 @@ export type ComponentMap = {
   ]
 }
 
+export type TypeMapping = {
+  bottleList: BottleKeysProps
+  orderList: OrderKeysProps
+  nominationList: NominationKeysProps
+  serviceDrinkList: serviceDrinkKeysProps
+  error: ErrorMassageProps
+}
+
 export type Order = {
   order_id: string,
   order_menu: string 
@@ -148,3 +156,33 @@ export type BottleKeysProps = {
   price: number;
 
 }
+
+export type NominationKeysProps = {
+  id: number;
+  nomination: string;
+  hostess_id: number;
+  price: number;
+}
+
+
+export type serviceDrinkKeysProps = {
+  id: number,
+  drink: string,
+  hostess_id: number,
+  price: number
+}
+
+export type ErrorMassageProps = {
+  id: 0
+  drink: "error"
+  hostess_id: 0
+  price: 0
+  bottle: "error"
+  massage: "データが取得できませんでした。システム管理者に問い合わせてください"
+}
+
+type calcBillChargesProps = {
+  type: "bottle" | "order" | "nomination" | "cource" | "serviceDrink"
+}
+
+type BillKeys = "bottleList" | "orderList" | "serviceDrinkList" | "nominationList" ;

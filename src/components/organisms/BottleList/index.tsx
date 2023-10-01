@@ -3,6 +3,7 @@ import Flex from "components/layout/Flex"
 import Text from 'components/atoms/Text'
 import { Bill } from "types"
 import styled from "styled-components"
+import calcBillCharges from "services/bills/calcBillCharges"
 
 const BottleBoarder = styled.div`
   padding: ${({ theme }) => theme.small} 0px;
@@ -47,11 +48,18 @@ const bottleList= ({
                 ))
             }
             <BottleBoarder />
+            <Flex flexDirection="row">
             <Text 
                 as="h4"
+                margin={{ base: 'small', md: 'medium'}}
             >
                 { 'ボトル料金' }
             </Text>
+            <Text
+                margin={{ base: 'small', md: 'medium'}}>
+                { calcBillCharges({type: "bottle"})?.bottleTotal }
+            </Text>
+            </Flex>
         </Flex>
     )
 }

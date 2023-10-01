@@ -3,6 +3,8 @@ import Box from "components/layout/Box"
 import Text from 'components/atoms/Text'
 import styled from "styled-components"
 import { Bill } from "types"
+import calcBillCharges from "services/bills/calcBillCharges"
+import calcBillTotalCharges from "services/bills/calcBillTotalCharges"
 
 const FooterRoot = styled.footer`
     height: 100px;
@@ -25,20 +27,21 @@ const PaymentDetailFooter = ({
             <Flex 
                 justifyContent="space-between"
             >
-                <Box>
+                <Flex flexDirection="column">
                     <Text
-                    as="h2"
+                        as="h2"
                         fontSize={{ base: 'small', md: 'medium'}}
                     >
-                        { '小計：' }
+                        { '小計：' }{ calcBillTotalCharges() }
                     </Text>
+                   
                     <Text
                         as="span"
                         fontSize={{ base: 'medium', md: 'mediumLarge'}}
                     >
-                        { `合計: `}
+                        { `合計: `}{ calcBillTotalCharges() }
                     </Text>
-                </Box>
+                </Flex>
             </Flex>
         </FooterRoot>
     )

@@ -3,6 +3,7 @@ import Flex from "components/layout/Flex"
 import Text from 'components/atoms/Text'
 import { useSelectedBill } from "contexts/SelectedBillContext"
 import styled from "styled-components"
+import calcBillCharges from "services/bills/calcBillCharges"
 
 const NominationBoarder = styled.div`
   padding: ${({ theme }) => theme.small} 0px;
@@ -17,6 +18,7 @@ const nominationList = () => {
   const { selectedBill } = useSelectedBill()
     
    
+
     return(
         <Flex flexDirection={{ base: 'column', md: 'column'}}>
             
@@ -44,14 +46,22 @@ const nominationList = () => {
                             { nomination.price}
                         </Text>
                     </Flex>
+                    
                 ))
             }
             <NominationBoarder />
+            <Flex flexDirection="row">
             <Text 
                 as="h4"
+                margin={{ base: 'small', md: 'medium'}}
             >
                 { '指名料金' }
             </Text>
+            <Text
+                margin={{ base: 'small', md: 'medium'}}>
+                { calcBillCharges({type: "nomination"})?.nominationTotal }
+            </Text>
+            </Flex>
         </Flex>
     )
 }
