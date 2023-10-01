@@ -3,6 +3,8 @@ import Flex from "components/layout/Flex"
 import Text from 'components/atoms/Text'
 import { useSelectedBill } from "contexts/SelectedBillContext"
 import styled from "styled-components"
+import { MenuBoardKeysOptions } from "types"
+import { useBillCardListContext } from "contexts/BillCardListContext"
 
 
 const OrderBoardContainer = styled.div`
@@ -34,11 +36,56 @@ const OrderBoardContainer = styled.div`
     }
 `
 
+type OrderKeysProps = {
+
+    id: number;
+    drink: string;
+    hostess_id: number;
+    price: number;
+
+}
 
 const orderBoard = () => {
 
     
-  const { selectedBill } = useSelectedBill()
+  const { selectedBill, setSelectedBill } = useSelectedBill()
+  const { updateBill } = useBillCardListContext()
+
+
+
+  const resetKeyPressed = (order: OrderKeysProps) => {
+
+    if(selectedBill){
+        const orderList = selectedBill.order?.orderList ?? []
+        const findIndex = orderList.findIndex((el) => el === order)
+
+        console.log(findIndex)
+
+        if(findIndex === -1){
+            console.log('見つかりません')
+        }
+        console.log(orderList)
+        const orderListItem = [...orderList]
+        console.log(orderListItem)
+        const newOrderList = orderListItem.splice(findIndex,1)
+
+        console.log(newOrderList)
+
+        const updatedBill = {
+            ...selectedBill,
+            order: {
+                ...selectedBill.order,
+                orderList: orderListItem
+            }
+        }
+
+        updateBill(updatedBill)
+        setSelectedBill(updatedBill)
+
+    }
+
+    
+  }
     
    
     return(
@@ -65,7 +112,7 @@ const orderBoard = () => {
                                 </Text>
                                 <Text as="span" className="price"> { order.price }</Text>
                             </Flex>
-                                <button>消</button>
+                                <button onClick={()=> resetKeyPressed(order)}>消</button>
                         </Flex>
                         
                     </Flex>

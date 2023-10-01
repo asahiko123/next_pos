@@ -25,9 +25,11 @@ const CourceList = ({
                         <Text 
                             as="span"
                             fontSize={{ base: 'small', md: 'medium'}}
+                            margin={{ base: 'small', md: 'medium'}}
                         >
                             { bill.cource.basic_cource }
                         </Text>
+                        
                     </Flex>
                 )
             }

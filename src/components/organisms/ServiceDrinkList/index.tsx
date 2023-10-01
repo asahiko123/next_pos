@@ -22,12 +22,23 @@ const ServiceDrinkList = ({
             
                 {
                     bill?.order?.serviceDrinkList?.map((serviceDrink,index) => (
+                        <Flex flexDirection="row">
                         <Text
                             as="span"
                             fontSize={{ base: 'small' ,md: 'medium'}}
+                            margin={{ base: 'small' ,md: 'medium'}}
                             key={`${bill.order.raitenId}-${index}` || 'undefined'}>
                                 { serviceDrink.drink }
                         </Text>
+
+                        <Text
+                            as="span"
+                            fontSize={{ base: 'small' ,md: 'medium'}}
+                            margin={{ base: 'small' ,md: 'medium'}}
+                            key={`${bill.order.raitenId}-${index}` || 'undefined'}>
+                                { serviceDrink.price }
+                        </Text>
+                        </Flex>
                     ))
                 }
                 <ServiceDrinkBoarder />

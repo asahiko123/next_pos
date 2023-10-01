@@ -1,8 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import signout from 'services/auth/signout'
 import useSWR from 'swr'
 import signin from 'services/auth/signin'
 import type { ApiContext, User } from 'types'
+import router from 'next/router'
 
 type AuthContextType = {
   authUser?: User
@@ -44,6 +45,8 @@ export const AuthContextProvider = ({
     `${context.apiRootUrl.replace(/\/$/g, '')}/auth/me`,
   )
   const isLoading = !data && !error
+
+
 
   // サインイン
   const signinInternal = async (username: string, password: string) => {

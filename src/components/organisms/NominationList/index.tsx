@@ -22,14 +22,26 @@ const nominationList = () => {
             
             {
                 selectedBill?.order?.nominationList?.map((nomination,index) => (
-                   <Flex flexDirection={{ base: 'column', md: 'column'}}
+                   <Flex flexDirection={{ base: 'row', md: 'row'}}
                     >
                         <Text 
                             as="span"
                             fontSize={{ base: 'small', md: 'medium'}}
+                            margin={{ base: 'small', md: 'medium'}}
+                            
                             key={ `${selectedBill.order.raitenId}-${index}` || 'undefined'}
                         >
-                            { nomination.nomination } { nomination.price}
+                            { nomination.nomination } 
+                        </Text>
+
+                        <Text 
+                            as="span"
+                            fontSize={{ base: 'small', md: 'medium'}}
+                            margin={{ base: 'small', md: 'medium'}}
+                            
+                            key={ `${selectedBill.order.raitenId}-${index}` || 'undefined'}
+                        >
+                            { nomination.price}
                         </Text>
                     </Flex>
                 ))

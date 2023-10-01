@@ -24,14 +24,24 @@ const bottleList= ({
             
             {
                 bill?.order?.bottleList?.map((bottle,index) => (
-                   <Flex flexDirection={{ base: 'column', md: 'column'}} 
+                   <Flex flexDirection={{ base: 'row', md: 'row'}} 
                     >
                         <Text 
                             as="span"
                             fontSize={{ base: 'small', md: 'medium'}}
+                            margin={{ base: 'small', md: 'medium'}}
                             key={ `${bill.order.raitenId}-${index}` || 'undefined'}
                         >
-                            { bottle.bottle } { bottle.price}
+                            { bottle.bottle } 
+                        </Text>
+
+                        <Text 
+                            as="span"
+                            fontSize={{ base: 'small', md: 'medium'}}
+                            margin={{ base: 'small', md: 'medium'}}
+                            key={ `${bill.order.raitenId}-${index}` || 'undefined'}
+                        >
+                             { bottle.price}
                         </Text>
                     </Flex>
                 ))

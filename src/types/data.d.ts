@@ -130,3 +130,21 @@ export type ListProps = [
     content: string
   }
 ]
+
+export type OrderKeysProps = {
+
+  id: number;
+  drink: string;
+  hostess_id: number;
+  price: number;
+
+}
+
+export type BottleKeysProps = {
+
+  id: number;
+  bottle: string;
+  hostess_id: number;
+  price: number;
+
+}

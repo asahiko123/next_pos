@@ -6,7 +6,6 @@ import BillCardListContainer from "containers/BillCardListContainer";
 import PaymentDetailContainer from "containers/PaymentDetailContainer";
 import { SelectedBillContextProvider, useSelectedBill } from "contexts/SelectedBillContext";
 import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from "next";
-import { useEffect, useState } from "react";
 import getAllBills from "services/bills/getAllBills";
 import { ApiContext } from "types";
 
@@ -14,6 +13,7 @@ import { ApiContext } from "types";
 type MainBoardProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const MainBoard: NextPage<MainBoardProps> = ({ bills }) => {
+
 
 
 

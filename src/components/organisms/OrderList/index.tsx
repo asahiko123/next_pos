@@ -24,14 +24,28 @@ const orderList = ({
             
             { 
                 bill?.order?.orderList?.map((order,index) => (
+
+                    <Flex flexDirection="row">
                     
                     <Text 
                         as="span"
                         fontSize={{ base: 'small', md: 'medium'}}
+                        margin={{ base: 'small', md: 'medium'}}
                         key={`${bill.order.raitenId}-${index}` || 'undefined'}
                     >
                         { order.drink }
                     </Text>
+
+                    <Text 
+                    as="span"
+                    fontSize={{ base: 'small', md: 'medium'}}
+                    margin={{ base: 'small', md: 'medium'}}
+                    key={`${bill.order.raitenId}-${index}` || 'undefined'}
+                    >
+                    { order.price }
+                    </Text>
+
+                    </Flex>
                 
                 ))
             }

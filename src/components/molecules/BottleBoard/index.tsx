@@ -3,6 +3,8 @@ import Flex from "components/layout/Flex"
 import Text from 'components/atoms/Text'
 import { useSelectedBill } from "contexts/SelectedBillContext"
 import styled from "styled-components"
+import { useBillCardListContext } from "contexts/BillCardListContext"
+import { BottleKeysProps, OrderKeysProps } from "types"
 
 const BottleBoardContainer = styled.div`
     height: 200px;
@@ -33,7 +35,43 @@ const BottleBoardContainer = styled.div`
 const bottleBoard = () => {
 
     
-  const { selectedBill } = useSelectedBill()
+  const { selectedBill, setSelectedBill } = useSelectedBill()
+  const { updateBill } = useBillCardListContext()
+
+
+  const resetKeyPressed = (bottle: BottleKeysProps) => {
+
+    if(selectedBill){
+        const bottleList = selectedBill.order?.bottleList ?? []
+        const findIndex = bottleList.findIndex((el) => el === bottle)
+
+        console.log(findIndex)
+
+        if(findIndex === -1){
+            console.log('見つかりません')
+        }
+        console.log(bottleList)
+        const bottleListItem = [...bottleList]
+        console.log(bottleListItem)
+        const newBottleList = bottleListItem.splice(findIndex,1)
+
+        console.log(newBottleList)
+
+        const updatedBill = {
+            ...selectedBill,
+            order: {
+                ...selectedBill.order,
+                bottleList: bottleListItem
+            }
+        }
+
+        updateBill(updatedBill)
+        setSelectedBill(updatedBill)
+
+    }
+
+    
+  }
     
    
     return(
@@ -53,7 +91,7 @@ const bottleBoard = () => {
                                 { bottle.bottle} 
                             </Text>
                             
-                                <button>消</button>
+                                <button onClick={() => resetKeyPressed(bottle)}>消</button>
                         </Flex>
                     ))
                 }
