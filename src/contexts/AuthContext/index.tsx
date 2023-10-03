@@ -54,10 +54,10 @@ export const AuthContextProvider = ({
     await mutate()
   }
 
-  // サインアウト
+  // サインアウト - mutateでキャッシュをクリア
   const signoutInternal = async () => {
     await signout(context)
-    await mutate()
+    await mutate(undefined)
   }
 
   return (

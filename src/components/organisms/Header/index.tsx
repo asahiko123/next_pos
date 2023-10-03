@@ -38,7 +38,59 @@ import Link from 'next/link'
   const Header = () => {
     const { authUser, isLoading} = useAuthContext()
 
-    
+    const headerRenderContent = () => {
+
+      console.log(authUser)
+             
+      if (authUser) {
+        return (
+          <Flex flexDirection="row">
+            <ShapeImage
+                  shape="circle"
+                  src={'https://placehold.jp/50x50.png'}
+                  width={50}
+                  height={50}
+                  data-testid="profile-shape-image"
+                  alt={''}
+                />
+            <Flex flexDirection="column">
+              <Text>{`${authUser.username}`}</Text>
+              <Text>{`${authUser.description}`}</Text>
+            </Flex>            
+          </Flex>
+        )
+      }
+      else if(isLoading){
+        return(
+          <Spinner size={20} strokeWidth={2} />
+        )
+      } else {
+        return(
+        <Link href="/signin" passHref >
+          <Anchor as="a">
+          <ShapeImage
+                  shape="circle"
+                  src={'https://placehold.jp/50x50.png'}
+                  width={50}
+                  height={50}
+                  data-testid="profile-shape-image"
+                  alt={''}
+                />
+          </Anchor>
+        </Link>
+        )
+      }
+
+    }
+
+    const signoutButton = () => {  
+      if(authUser){  
+        return(
+           <SignOutButtonContainer />
+          )
+
+      }
+    }
 
     return (
       <HeaderRoot>
@@ -47,67 +99,13 @@ import Link from 'next/link'
 
 
             <NavLink>
-              {(() => {
-
-                console.log(authUser)
-                
               
-                if (authUser) {
-                  return (
-                    <Flex flexDirection="row">
-                      <ShapeImage
-                            shape="circle"
-                            src={'https://placehold.jp/50x50.png'}
-                            width={50}
-                            height={50}
-                            data-testid="profile-shape-image"
-                            alt={''}
-                          />
-                      <Flex flexDirection="column">
-                        <Text>{`${authUser.username}`}</Text>
-                        <Text>{`${authUser.description}`}</Text>
-                      </Flex>            
-                    </Flex>
-                  )
-                }
-                else if(isLoading){
-                  return(
-                    <Spinner size={20} strokeWidth={2} />
-                  )
-                } else {
-                  <Link href="/signin" passHref >
-                    <Anchor as="a">
-                    <ShapeImage
-                            shape="circle"
-                            src={'https://placehold.jp/50x50.png'}
-                            width={50}
-                            height={50}
-                            data-testid="profile-shape-image"
-                            alt={''}
-                          />
-                    </Anchor>
-                  </Link>
-                }
-                
-              })()}
-
+              {headerRenderContent()}
             
             </NavLink>     
           </Nav>
-          {
-            (()=> {
-              if(authUser){
-                return(
-                   <SignOutButtonContainer />
-                  )
-              }
-              else{
-                
-              }
 
-            })()
-          }
-         
+          {signoutButton()}
         </Flex>
       </HeaderRoot>
     )

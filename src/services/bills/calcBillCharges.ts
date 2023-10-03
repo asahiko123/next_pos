@@ -8,6 +8,7 @@ const calcBillCharges = ({ type }: calcBillChargesProps) => {
 
     const { selectedBill } = useSelectedBill()
     let LIST_TYPE: keyof TypeMapping = "error"
+    ';'
 
 
     let prevOrderTotal = 0

@@ -21,7 +21,7 @@ const SignOutButtonContainer = () => {
 
     const handleSignOut= async () => {
         try{
-            setGlobalSpinner(true)
+            // setGlobalSpinner(true)
             await signout()
         }catch(err: unknown){
             if(err instanceof Error) {
