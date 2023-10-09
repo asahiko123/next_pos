@@ -5,6 +5,9 @@ import { useSelectedBill } from "contexts/SelectedBillContext"
 import styled from "styled-components"
 import calcBillCharges from "services/bills/calcBillCharges"
 import { hostess,nominations } from "utils/data"
+import { useState } from "react"
+import { NominationKeysProps, NominationOptions } from "types"
+import { useBillCardListContext } from "contexts/BillCardListContext"
 
 
 const NominationBoarder = styled.div`
@@ -15,15 +18,69 @@ const NominationBoarder = styled.div`
 `
 
 const NominationContainer = styled.div`
+    height: 200px;
     width: 250px;
+    overflow-y: scroll;
+
+    .nomination_content{
+        padding: 5px 0px;
+        align-items: center;
+        font-weight: bold;
+        border: solid 1px #bebebe;
+        background-color: #ada8b2;
+    }
+
+    button {
+        font-size: 30px;
+        background: red;
+        color: white;
+        outline: none;
+        border: solid 2px #bebebe;
+        cursor: pointer
+        height: 50px;
+        width: 50px;
+        }
+        button:hover {
+          background: #b4b4b4;
+        }
     
 `
-const nominationList = () => {
+const nominationBoard = () => {
 
     
-  const { selectedBill } = useSelectedBill()
+  const { selectedBill,setSelectedBill } = useSelectedBill()
+  const { updateBill } = useBillCardListContext()
 
-  
+  const resetKeyPressed = (nomination:  NominationKeysProps) => {
+    
+        if(selectedBill){
+            const nominationList = selectedBill?.order?.nominationList ?? []
+            const findIndex = nominationList?.findIndex((el) => el === nomination) 
+
+            if(findIndex === -1){
+                console.log('見つかりません')
+            }
+
+        
+                const nominationListItem = [...nominationList]
+                
+                nominationListItem.splice(findIndex,1)
+
+                const updatedBill = {
+                    ...selectedBill,
+                    order: {
+                        ...selectedBill.order,
+                        nominationList: nominationListItem
+                    }
+                }
+
+                updateBill(updatedBill)
+                setSelectedBill(updatedBill)
+        }
+
+        
+        
+  }
     
    
 
@@ -35,7 +92,7 @@ const nominationList = () => {
             
             {
                 selectedBill?.order?.nominationList?.map((nomination,index) => (
-                   <Flex flexDirection={{ base: 'row', md: 'row'}}
+                   <Flex flexDirection={{ base: 'row', md: 'row'} } justifyContent="flex-end" className="nomination_content"
                     >
                         <Text 
                             as="span"
@@ -67,6 +124,12 @@ const nominationList = () => {
                         >
                             { nomination.price}
                         </Text>
+
+                        {
+                     
+                            <button onClick={() => resetKeyPressed(nomination)}>消</button>
+                            
+                        }
                     </Flex>
                     
                 ))
@@ -92,4 +155,4 @@ const nominationList = () => {
 }
 
 
-export default nominationList
+export default nominationBoard

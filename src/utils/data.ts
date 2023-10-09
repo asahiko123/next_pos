@@ -4,12 +4,13 @@ import nominationList from "components/organisms/NominationList"
 import orderBoard from "components/molecules/OrderBoard"
 import calculator from "components/organisms/Calculator"
 import menuBoard from "components/organisms/OrderMenuBoard"
-import nominationBoard from "components/molecules/NominationBoard"
+import nominationBoard from "components/organisms/NominationBoard"
 import OrderList from "components/organisms/OrderList"
 import selector from 'components/organisms/Selector'
-import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, Order} from "types"
+import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, NominationOptions, Order} from "types"
 import BottleMenuBoard from "components/organisms/BottleMenuBoard"
 import OrderMenuBoard from "components/organisms/OrderMenuBoard"
+import NominationMenuBoard from "components/organisms/NominationMenuBoard"
 
 
 export const courceOptions: CourceOptions[] = [
@@ -76,15 +77,29 @@ export const footerMenu: FooterMenuOptions[] = [
 ]
 
 export const hostess: HostessOptions[] = [
-    { hostess_id: '1', hostess_name: 'ほのか'},
-    { hostess_id: '2', hostess_name: 'ありさ'},
-    { hostess_id: '3', hostess_name: 'りか'},
-    { hostess_id: '4', hostess_name: 'ゆい'},
-    { hostess_id: '5', hostess_name: 'れい'},
-    { hostess_id: '6', hostess_name: 'あすか'},
-    { hostess_id: '7', hostess_name: 'まりん'},
-    { hostess_id: '8', hostess_name: 'のの'},
+    { hostess_id: 1, hostess_name: 'ほのか'},
+    { hostess_id: 2, hostess_name: 'ありさ'},
+    { hostess_id: 3, hostess_name: 'りか'},
+    { hostess_id: 4, hostess_name: 'ゆい'},
+    { hostess_id: 5, hostess_name: 'れい'},
+    { hostess_id: 6, hostess_name: 'あすか'},
+    { hostess_id: 7, hostess_name: 'まりん'},
+    { hostess_id: 8, hostess_name: 'のの'},
+    { hostess_id: 9, hostess_name: 'まりあ'},
+    { hostess_id: 10, hostess_name: 'るい'},
+    { hostess_id: 11, hostess_name: 'れい'},
+    { hostess_id: 12, hostess_name: 'あやの'},
+    { hostess_id: 13, hostess_name: 'かな'},
+    { hostess_id: 14, hostess_name: 'ぼたん'},
+    { hostess_id: 15, hostess_name: 'りゅう'},
+    { hostess_id: 16, hostess_name: 'さくら'},
     
+]
+
+export const nominations: NominationOptions[] = [
+    {nomination_type_id: 1, nomination: '本指名',price: 2000},
+    {nomination_type_id: 2, nomination: '場内指名',price: 1000},
+    {nomination_type_id: 5, nomination: '同伴', price: 1500},
 ]
 
 
@@ -114,8 +129,8 @@ export const componentMap: ComponentMap[] = [
     {
         type: '指名',
         components: [
-            { type: 'nominationBoard',component: nominationBoard},
-            { type: 'nominationList',component: nominationList}
+            { type: 'nominationBoard',component: NominationMenuBoard},
+            { type: 'nominationList',component: nominationBoard}
         ]
     }
     

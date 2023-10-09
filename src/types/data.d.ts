@@ -24,6 +24,7 @@ export type Bill = {
   cource: {
     basic_cource: string,
     numberOfPeople: number,
+    price: number
   },
   extensionCource: {
     extension_cource: string,
@@ -61,7 +62,7 @@ export type Bill = {
     nominationList?:
         {
             id: number,
-            nomination: string,
+            nomination_type_id: number,
             hostess_id: number,
             price: number
         }[]
@@ -106,8 +107,14 @@ export type FooterMenuOptions = {
 }
 
 export type HostessOptions = {
-  hostess_id : string,
+  hostess_id : number,
   hostess_name: string,
+}
+
+export type NominationOptions = {
+  nomination_type_id: number,
+  nomination: string,
+  price: number
 }
 
 export type ComponentMap = {
@@ -159,7 +166,7 @@ export type BottleKeysProps = {
 
 export type NominationKeysProps = {
   id: number;
-  nomination: string;
+  nomination_type_id: number,
   hostess_id: number;
   price: number;
 }
