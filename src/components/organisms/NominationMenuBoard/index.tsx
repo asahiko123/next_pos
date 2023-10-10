@@ -11,7 +11,7 @@ import { hostess, nominations } from "utils/data"
 const NominationBoardContainer = styled.div`
 
   .button-wrapper{
-    height: 150px;
+    height: 250px;
     overflow-y: scroll;
   }
   
@@ -20,7 +20,7 @@ const NominationBoardContainer = styled.div`
   flex-flow: column;
   width: 100%;
   height: 50px;
-  font-size: 10px;
+  font-size: 20px;
   background: #6633CC;
   color: white;
   outline: none;
@@ -30,6 +30,21 @@ const NominationBoardContainer = styled.div`
   }
   button:hover {
     background: #b4b4b4;
+  }
+
+  .nomination_container{
+    height: 50px;
+    font-weight: bold;
+    background: #ada8b2;
+    border: solid 1px #bebebe;
+  }
+
+  .nomination_hostess_name{
+    font-size: 20px;
+  }
+
+  .nomination_pressKey{
+    background: orange;
   }
 `
 
@@ -70,10 +85,6 @@ const nominationBoard = () => {
            
     }
 
-    const resetKeyPressed = (key: string) => {
-            setInput('')
-    }
-    
 
     return(
         <Flex flexDirection={{ base: 'column', md: 'column'}}> 
@@ -87,18 +98,19 @@ const nominationBoard = () => {
                                
 
                                 return (
-                                    <button key={`${el.hostess_id}-${index}`}>
-                                        <div> {el.hostess_name} </div>
+                                    <Flex key={`${el.hostess_id}-${index}`} justifyContent="space-between"className="nomination_container">
+                                        <div className="nomination_hostess_name"> {el.hostess_name} </div>
                                         <NominationSelectBoxContainer>
                                         {
                                             nominations.map((item,index) => {
                                                 return(
-                                                    <button key={`${item.nomination_type_id}-${index}`} onClick={() => keyPressed({id: index ,hostess_id: el.hostess_id,nomination_type_id: item.nomination_type_id,price: item.price})}>{item.nomination}</button>
+                                                    <button key={`${item.nomination_type_id}-${index}`} onClick={() => keyPressed({id: index ,hostess_id: el.hostess_id,nomination_type_id: item.nomination_type_id,price: item.price})}
+                                                        className="nomination_pressKey">{item.nomination}</button>
                                                 )
                                             })
                                         }
                                         </NominationSelectBoxContainer>
-                                    </button>
+                                    </Flex>
                                 )
                             })
                         }

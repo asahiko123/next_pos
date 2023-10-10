@@ -8,10 +8,9 @@ import { useBillCardListContext } from "contexts/BillCardListContext"
 
 
 const OrderBoardContainer = styled.div`
-    height: 200px;
-    width: 250px;
-    margin: 0 30px;
-    overflow: scroll;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
     .order_content{
         padding: 5px 0px;
         align-items: center;
@@ -20,10 +19,14 @@ const OrderBoardContainer = styled.div`
         background-color: #ada8b2;
 
     }
+    .order_container{
+        flex: 1;
+    }
     button{
         margin-left: 10px;
         height: 50px;
-        font-size: 10px;
+        width: 50px;
+        font-size: 30px;
         background: red;
         color: white;
         outline: none;
@@ -89,27 +92,23 @@ const orderBoard = () => {
     
    
     return(
-        <Flex flexDirection={{ base: 'column', md: 'column'}}>
-            {/* <Text 
-                as="h4"
-            >
-                { 'オーダー' }
-            </Text> */}
-            <OrderBoardContainer>
+        <OrderBoardContainer>
+        <Flex flexDirection={{ base: 'column', md: 'column'}} className="order_container">
             {
                 selectedBill?.order?.orderList?.map((order,index) => (
                    <Flex flexDirection={{ base: 'column', md: 'column'}}
                     >
-                        <Flex className="order_content" justifyContent="flex-end">
-                            <Flex flexDirection={{ base: 'column', md: 'column'}} justifyContent="flex-end">
-                                <Text 
-                                    as="span"
-                                    fontSize={{ base: 'small', md: 'medium'}}
-                                    key={ `${selectedBill.order.raitenId}-${index}` || 'undefined'}
-                                >
-                                    { order.drink } 
-                                    
-                                </Text>
+                        <Flex className="order_content" justifyContent="space-between">
+                            <Text 
+                                as="span"
+                                fontSize={{ base: 'small', md: 'medium'}}
+                                key={ `${selectedBill.order.raitenId}-${index}` || 'undefined'}
+                            >
+                                { order.drink } 
+                                
+                            </Text>
+                            <Flex flexDirection={{ base: 'column', md: 'column'}} >
+                               
                                 <Text as="span" className="price"> { order.price }</Text>
                             </Flex>
                                 <button onClick={()=> resetKeyPressed(order)}>消</button>
@@ -118,8 +117,8 @@ const orderBoard = () => {
                     </Flex>
                 ))
             }
-            </OrderBoardContainer>
         </Flex>
+        </OrderBoardContainer>
     )
 }
 

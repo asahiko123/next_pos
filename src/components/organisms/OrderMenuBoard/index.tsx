@@ -16,12 +16,13 @@ const MenuBoardContainer = styled.div`
   grid-template-rows: repeat(4, 1fr);
   
   button {
-  font-size: 10px;
+  height: 50px;
+  font-weight: bold;
   background: #f58718;
-  color: white;
+  color: black;
   outline: none;
   border: solid 2px #bebebe;
-  cursor: pointer
+  cursor: pointer;
   }
   button:hover {
     background: #b4b4b4;

@@ -18,8 +18,8 @@ const NominationBoarder = styled.div`
 `
 
 const NominationContainer = styled.div`
-    height: 200px;
-    width: 250px;
+    height: 100%;
+    width: 100%;
     overflow-y: scroll;
 
     .nomination_content{
@@ -63,7 +63,7 @@ const nominationBoard = () => {
 
         
                 const nominationListItem = [...nominationList]
-                
+
                 nominationListItem.splice(findIndex,1)
 
                 const updatedBill = {

@@ -97,8 +97,8 @@ export const hostess: HostessOptions[] = [
 ]
 
 export const nominations: NominationOptions[] = [
-    {nomination_type_id: 1, nomination: '本指名',price: 2000},
-    {nomination_type_id: 2, nomination: '場内指名',price: 1000},
+    {nomination_type_id: 1, nomination: '本指',price: 2000},
+    {nomination_type_id: 2, nomination: '場内',price: 1000},
     {nomination_type_id: 5, nomination: '同伴', price: 1500},
 ]
 
