@@ -1,12 +1,16 @@
 import Button from "components/atoms/Button"
 import Box from "components/layout/Box"
 import Flex from "components/layout/Flex"
+import { useBillCardListContext } from "contexts/BillCardListContext"
+import { useSelectedBill } from "contexts/SelectedBillContext"
 import { useState } from "react"
 import styled from "styled-components"
 import theme from "themes"
 import { calculatorKeys } from "utils/data"
 
-
+const CalculatorContainer = styled.div`
+    width: 50%;
+`
 const CalculatorKeyContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -37,6 +41,11 @@ const calculator = () => {
     const [ input, setInput ] = useState(0)
     const [ operator, setOperator ] = useState(null)
     const [ additionalInput, setAdditionalInput ] = useState(0)
+
+
+    const { selectedBill, setSelectedBill } = useSelectedBill()
+    const { updateBill } = useBillCardListContext()
+
     
     const keyPressed = (key: number) => {
         if(operator === null){
@@ -54,6 +63,7 @@ const calculator = () => {
     
 
     return(
+        <CalculatorContainer>
         <Flex flexDirection={{ base: 'column', md: 'column'}}> 
             <Box className="input">
                 <DisplayContainer>
@@ -84,6 +94,7 @@ const calculator = () => {
                 </CalculatorKeyContainer>
             </Box>
         </Flex>
+        </CalculatorContainer>
     )
 
 }

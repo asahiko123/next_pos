@@ -7,18 +7,23 @@ import menuBoard from "components/organisms/OrderMenuBoard"
 import nominationBoard from "components/organisms/NominationBoard"
 import OrderList from "components/organisms/OrderList"
 import selector from 'components/organisms/Selector'
-import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, NominationOptions, Order} from "types"
+import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, NominationOptions, Order, SelectorOptions} from "types"
 import BottleMenuBoard from "components/organisms/BottleMenuBoard"
 import OrderMenuBoard from "components/organisms/OrderMenuBoard"
 import NominationMenuBoard from "components/organisms/NominationMenuBoard"
 
 
-export const courceOptions: CourceOptions[] = [
+export const selectorOptions: SelectorOptions[] = [
     { value : '60分コース',label: '60分コース'},
     { value : '120分コース',label: '120分コース'},
     { value : 'お試しコース',label: 'お試しコース'},
 ]
 
+export const courceOptions: CourceOptions[] = [
+    { basic_cource : '60分コース',numberOfPeople: null, price: 1500},
+    { basic_cource : '120分コース',numberOfPeople: null, price: 2000},
+    { basic_cource : 'お試しコース',numberOfPeople: null, price: 1000},
+]
 export const calculatorKeys: CalculatorKeysOptions[] = [
     { value: 1},
     { value: 2},

@@ -23,7 +23,7 @@ export type Bill = {
   condition: string,
   cource: {
     basic_cource: string,
-    numberOfPeople: number,
+    numberOfPeople: number | null,
     price: number
   },
   extensionCource: {
@@ -84,9 +84,15 @@ export type ApiContext = {
 }
 
 
-export type CourceOptions = {
+export type SelectorOptions = {
   value: string,
   label: string,
+}
+
+export type CourceOptions = {
+  basic_cource: string,
+  numberOfPeople: number | null,
+  price: number
 }
 
 export interface CalculatorKeysOptions{
