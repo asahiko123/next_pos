@@ -8,13 +8,14 @@ import { SelectedBillContextProvider, useSelectedBill } from "contexts/SelectedB
 import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from "next";
 import getAllBills from "services/bills/getAllBills";
 import { ApiContext } from "types";
+import { useAuthGuard } from "utils/hooks";
 
 
 type MainBoardProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const MainBoard: NextPage<MainBoardProps> = ({ bills }) => {
 
-
+   useAuthGuard()
 
 
     return(

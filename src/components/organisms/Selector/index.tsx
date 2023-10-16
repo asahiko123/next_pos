@@ -36,6 +36,7 @@ const selector = () => {
         console.log(selectedBill?.cource)
     }
 
+    
 
     return(
         <Select 
