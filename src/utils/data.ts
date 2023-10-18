@@ -11,6 +11,8 @@ import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, 
 import BottleMenuBoard from "components/organisms/BottleMenuBoard"
 import OrderMenuBoard from "components/organisms/OrderMenuBoard"
 import NominationMenuBoard from "components/organisms/NominationMenuBoard"
+import InvoicePreview from "components/organisms/InvoicePreview"
+import InvoiceBoard from "components/organisms/InvoiceBoard"
 
 
 export const selectorOptions: SelectorOptions[] = [
@@ -77,7 +79,7 @@ export const footerMenu: FooterMenuOptions[] = [
     { value: 'オーダー'},
     { value: '指名'},
     { value: 'ボトル'},
-    { value: 'お会計'},
+    { value: '領収'},
     { value: '延長'},
 ]
 
@@ -136,6 +138,13 @@ export const componentMap: ComponentMap[] = [
         components: [
             { type: 'nominationBoard',component: NominationMenuBoard},
             { type: 'nominationList',component: nominationBoard}
+        ]
+    },
+    {
+        type: '領収',
+        components: [
+            { type: 'nominationBoard',component: InvoicePreview},
+            { type: 'nominationList',component: InvoiceBoard}
         ]
     }
     

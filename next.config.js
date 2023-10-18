@@ -18,7 +18,8 @@ const nextConfig = {
     return compilerConfig
   })(),
   images: {
-    domains: [`placehold.jp`]
+    domains: [`placehold.jp`],
+    disableStaticImages: true
   },
   async rewrites() {
     return [
@@ -30,6 +31,20 @@ const nextConfig = {
       },
     ]
   },
+
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [
+        {
+          loader: "@svgr/webpack",
+        },
+      ],
+    })
+    return config
+  }
+
+ 
 }
 
 module.exports = nextConfig

@@ -199,3 +199,11 @@ type calcBillChargesProps = {
 }
 
 type BillKeys = "bottleList" | "orderList" | "serviceDrinkList" | "nominationList" ;
+
+
+
+type SvgIconProps = SVGAttributes<SVGElement> & {
+  fileName: string;
+  width: number;
+  height: number;
+}
