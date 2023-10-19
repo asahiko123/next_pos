@@ -2,7 +2,7 @@ import { SvgIcon } from "components/atoms/SvgIcon"
 
 const InvoicePreview = () => {
     return(
-        <SvgIcon fileName="InvoicePreview" width={200} height={200} stroke="#333" strokeWidth={1.5} />
+        <SvgIcon fileName="InvoicePreview" width={600} height={700} stroke="#333" strokeWidth={1.5} />
     )
 }
 

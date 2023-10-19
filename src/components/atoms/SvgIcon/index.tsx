@@ -32,7 +32,7 @@ export const SvgIcon = ({ fileName, width, height, ...props}: SvgIconProps) => {
                     width: ${width}px;
                     height: ${height}px;
                   }
-                  @media (min-width: 768px) {
+                  @media (max-width: 768px) {
                     .icon {
                       width: ${width}px;
                       height: ${height}px;

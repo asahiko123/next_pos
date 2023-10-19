@@ -7,8 +7,8 @@ import { componentMap } from "utils/data"
 
 const PanelContainer = styled.div`
 position: relative;
-width: 50%;
-height: 50%;
+width: 70%;
+height: 70%;
 background-color: ${themes.shadows.backgroundColor};
 // border-radius: $radius;
 overflow: hidden;
