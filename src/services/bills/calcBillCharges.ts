@@ -8,7 +8,6 @@ const calcBillCharges = ({ type }: calcBillChargesProps) => {
 
     const { selectedBill } = useSelectedBill()
     let LIST_TYPE: keyof TypeMapping = "error"
-    ';'
 
 
     let prevOrderTotal = 0
@@ -43,7 +42,7 @@ const calcBillCharges = ({ type }: calcBillChargesProps) => {
         return;
     }
 
-    (selectedBill?.order[LIST_TYPE] as TypeMapping[typeof LIST_TYPE][])?.map((el,index)=> {
+    (selectedBill?.order[LIST_TYPE])?.map((el,index)=> {
 
         if(LIST_TYPE === "orderList"){
             orderTotal = prevOrderTotal + el.price

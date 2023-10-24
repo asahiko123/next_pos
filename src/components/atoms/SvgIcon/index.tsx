@@ -17,15 +17,7 @@ export const SvgIcon = ({ fileName, width, height, ...props}: SvgIconProps) => {
             <span className="icon">
                 <Icon width={width} height={height} {...props} />
             </span>
-            <style jsx global>{`
-                /*レスポンシブ対応*/
-                svg {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                }
-            `}
-            </style>
+
             <style jsx>{`
                 .icon {
                     display: block;

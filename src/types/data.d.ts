@@ -207,3 +207,8 @@ type SvgIconProps = SVGAttributes<SVGElement> & {
   width: number;
   height: number;
 }
+
+
+type ConversionInvoicePlaceholder = {
+  placeholder: string
+}
