@@ -1,7 +1,7 @@
 import Box from "components/layout/Box"
 import Flex from "components/layout/Flex"
 import Text from 'components/atoms/Text'
-import { Bill, CourceOptions } from "types"
+import { Bill, CourceListKeyProps, CourceOptions } from "types"
 import { useSelectedBill } from "contexts/SelectedBillContext"
 import updateBill from "services/bills/updateBill"
 import { useBillCardListContext } from "contexts/BillCardListContext"
@@ -16,16 +16,26 @@ const CourceBoard = ({
     const { selectedBill, setSelectedBill} = useSelectedBill()
     const { updateBill } = useBillCardListContext()
 
-    const resetKeyPressed = (cource: CourceOptions) => {
+    const resetKeyPressed = (cource: CourceListKeyProps) => {
     
         if(selectedBill){
-    
+                const courceList = selectedBill?.order?.courceList ?? []
+                const findIndex = courceList.findIndex((el) => el === cource)
+
+                if(findIndex === -1){
+                    console.log('見つかりません')
+                }
+
+                const courceListItem = [...courceList]
+
+                courceListItem.splice(findIndex,1)
+
 
                 const updatedBill = {
                     ...selectedBill,
-                    cource: {
-                        ...selectedBill.cource,
-                        cource
+                    order: {
+                        ...selectedBill.order,
+                        courceList: courceListItem
                     }
                 }
 
@@ -41,7 +51,8 @@ const CourceBoard = ({
     return(
         <Flex flexDirection={{ base: 'column', md: 'column'}}>
             {
-                bill && (
+                selectedBill?.order?.courceList?.map((cource,index) => (
+
                     <Flex flexDirection={{ base: 'column', md: 'column'}}
                     >
                         <Flex>
@@ -50,13 +61,14 @@ const CourceBoard = ({
                             fontSize={{ base: 'small', md: 'medium'}}
                             margin={{ base: 'small', md: 'medium'}}
                         >
-                            { bill.cource.basic_cource }
+                            { cource.basic_cource }
 
                         </Text>
-                        <button onClick={() => resetKeyPressed(bill.cource)}> { "消" }</button>
+                        <button onClick={() => resetKeyPressed(cource)}> { "消" }</button>
                         </Flex>
                     </Flex>
-                )
+
+                ))
             }
         </Flex>
     )

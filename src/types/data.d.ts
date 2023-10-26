@@ -21,15 +21,6 @@ export type Bill = {
   imageUrl?: string,
   price: number,
   condition: string,
-  cource: {
-    basic_cource: string,
-    numberOfPeople: number | null,
-    price: number
-  },
-  extensionCource: {
-    extension_cource: string,
-    price: number
-  },
   entryTime: string,
   closingTime: string,
   order: {
@@ -65,6 +56,19 @@ export type Bill = {
             nomination_type_id: number,
             hostess_id: number,
             price: number
+        }[]
+    ,
+    courceList:
+        {
+            id:number,
+            basic_cource: string,
+            numberOfPeople: number | null,
+            price: number,
+            extensionCourceList: {
+              id: number,
+              extension_cource: string,
+              price: number
+            }[],      
         }[]
     
   },
@@ -136,6 +140,7 @@ export type TypeMapping = {
   orderList: OrderKeysProps
   nominationList: NominationKeysProps
   serviceDrinkList: serviceDrinkKeysProps
+  courceList: CourceListKeyProps
   error: ErrorMassageProps
 }
 
@@ -178,6 +183,20 @@ export type NominationKeysProps = {
 }
 
 
+export type CourceListKeyProps = {
+  id: number,
+  basic_cource: string,
+  numberOfPeople: number | null,
+  price: number,
+  extensionCourceList: {
+    id: number,
+    extension_cource: string,
+    price: number
+  }[],   
+
+}
+
+
 export type serviceDrinkKeysProps = {
   id: number,
   drink: string,
@@ -195,10 +214,10 @@ export type ErrorMassageProps = {
 }
 
 type calcBillChargesProps = {
-  type: "bottle" | "order" | "nomination" | "cource" | "serviceDrink"
+  type: "bottle" | "order" | "nomination" | "cource" | "serviceDrink" | "cource"
 }
 
-type BillKeys = "bottleList" | "orderList" | "serviceDrinkList" | "nominationList" ;
+type BillKeys = "bottleList" | "orderList" | "serviceDrinkList" | "nominationList" | "courceList";
 
 
 

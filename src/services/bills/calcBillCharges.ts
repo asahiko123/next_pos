@@ -14,11 +14,15 @@ const calcBillCharges = ({ type }: calcBillChargesProps) => {
     let prevBottleTotal = 0
     let prevNominationTotal = 0
     let prevServiceDrinkTotal = 0
+    let prevCourceTotal = 0
+
+
 
     let orderTotal = 0
     let nominationTotal = 0
     let bottleTotal = 0
     let serviceDrinkTotal = 0
+    let courceTotal = 0
 
 
     switch(type){
@@ -33,14 +37,16 @@ const calcBillCharges = ({ type }: calcBillChargesProps) => {
             break
         case "serviceDrink":
             LIST_TYPE = "serviceDrinkList"
+        case "cource":
+            LIST_TYPE = "courceList"
         
     }
 
     
 
-    if(LIST_TYPE === "error"){
-        return;
-    }
+    // if(LIST_TYPE === "error"){
+    //     return;
+    // }
 
     (selectedBill?.order[LIST_TYPE])?.map((el,index)=> {
 
@@ -61,10 +67,14 @@ const calcBillCharges = ({ type }: calcBillChargesProps) => {
             serviceDrinkTotal = prevServiceDrinkTotal + el.price
             prevServiceDrinkTotal = serviceDrinkTotal
         }
+        if(LIST_TYPE === "courceList"){
+            courceTotal = prevCourceTotal + el.price
+            prevCourceTotal =  courceTotal
+        }
         
     })
 
-    return { orderTotal: orderTotal, bottleTotal: bottleTotal, nominationTotal: nominationTotal, serviceDrinkTotal: serviceDrinkTotal}
+    return { orderTotal: orderTotal, bottleTotal: bottleTotal, nominationTotal: nominationTotal, serviceDrinkTotal: serviceDrinkTotal, courceTotal: courceTotal}
 
 }
 

@@ -13,27 +13,31 @@ const selector = () => {
 
     const handleChange= (value: any) => {
 
-        
 
         if(selectedBill){
-            const cource = { basic_cource: value.value, 
-                numberOfPeople: selectedBill?.cource.numberOfPeople,
-                price: selectedBill?.cource.price
-               }
 
-            console.log(cource)
+            console.log(selectedBill.order)
+
+            const courceList = selectedBill.order.courceList
+
+           
+            courceList[0].basic_cource = value.value
+            
+
 
             const updatedBill = {
                 ...selectedBill,
-                cource
+                order: {
+                    ...selectedBill.order,
+                    courceList: courceList
+                }
             }
 
-            console.log(updatedBill)
-                updateBill(updatedBill)
-                setSelectedBill(updatedBill)
+            updateBill(updatedBill)
+            setSelectedBill(updatedBill)
         }
 
-        console.log(selectedBill?.cource)
+
     }
 
     
