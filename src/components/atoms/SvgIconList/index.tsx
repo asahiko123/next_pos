@@ -1,6 +1,12 @@
 // import Invoice from "../../../../public/invoice.svg"
+import styled from "styled-components";
 import Alert from "../../../../public/risk-icon.svg"
 import { SVGAttributes } from "react";
+
+
+const Border = styled.div`
+    border: 1px solid #000
+`
 
 export type SvgIconProps = SVGAttributes<SVGElement> & {
     fileName: string;
@@ -13,6 +19,7 @@ export type SvgIconProps = SVGAttributes<SVGElement> & {
 export const InvoicePreview = (props: SvgIconProps) => {
     return(
         // <Invoice {...props} />
+        <Border>
         <svg width="574" height="284" viewBox="0 0 574 284" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="&#233;&#160;&#152;&#229;&#143;&#142;&#230;&#155;&#184;">
         <rect id="Rectangle 1" x="42.8895" y="114.158" width="515.527" height="37.5549" fill="#D9D9D9" stroke="black" stroke-width="0.426761"/>
@@ -46,6 +53,7 @@ export const InvoicePreview = (props: SvgIconProps) => {
         <text id="&#239;&#188;&#133;&#229;&#144;&#136;&#232;&#168;&#136;&#233;&#135;&#145;&#233;&#161;&#141;%" fill="black" xmlSpace="preserve" style={{ whiteSpace: 'pre'}} font-family="Inter" font-size="20.4845" letter-spacing="0em"><tspan x="268.432" y="141.452">{`${props.billTotal}`}</tspan></text>
         </g>
         </svg>
+        </Border>
 
     )
 }
