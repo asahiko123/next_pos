@@ -6,19 +6,26 @@ import calculator from "components/organisms/Calculator"
 import menuBoard from "components/organisms/OrderMenuBoard"
 import nominationBoard from "components/organisms/NominationBoard"
 import OrderList from "components/organisms/OrderList"
-import selector from 'components/organisms/Selector'
-import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, NominationOptions, Order, SelectorOptions} from "types"
+import selector from 'components/organisms/CourceSelector'
+import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, NominationOptions, Order, PaymentOptions, SelectorOptions} from "types"
 import BottleMenuBoard from "components/organisms/BottleMenuBoard"
 import OrderMenuBoard from "components/organisms/OrderMenuBoard"
 import NominationMenuBoard from "components/organisms/NominationMenuBoard"
 import InvoicePreview from "components/organisms/InvoicePreview"
 import InvoiceBoard from "components/organisms/InvoiceBoard"
+import cource_selector from "components/organisms/CourceSelector"
 
 
 export const selectorOptions: SelectorOptions[] = [
-    { value : '60分コース',label: '60分コース'},
-    { value : '120分コース',label: '120分コース'},
-    { value : 'お試しコース',label: 'お試しコース'},
+    { value : '60分コース',label: '60分コース',numberOfPeople: null, price: 1500},
+    { value : '120分コース',label: '120分コース',numberOfPeople: null, price: 2000},
+    { value : 'お試しコース',label: 'お試しコース',numberOfPeople: null, price: 1000},
+]
+
+export const paymentOptions: PaymentOptions[] = [
+    { value: '現金',label: '現金'},
+    { value: 'カード10%',label: 'カード10%'},
+    { value: 'カード0%',label: 'カード0%'}
 ]
 
 export const courceOptions: CourceOptions[] = [
@@ -116,7 +123,7 @@ export const componentMap: ComponentMap[] = [
         type: '基本コース選択',
         components: [
             { type: 'calculator', component: calculator},
-            { type: 'selector', component: selector},
+            { type: 'selector', component: cource_selector},
         ]
     },
     {

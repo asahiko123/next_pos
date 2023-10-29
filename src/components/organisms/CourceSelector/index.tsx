@@ -5,7 +5,9 @@ import { useSelectedBill } from 'contexts/SelectedBillContext';
 import { useBillCardListContext } from 'contexts/BillCardListContext';
 import { useState } from 'react';
 
-const selector = () => {
+
+
+const CourceSelector = () => {
 
     const animatedComponents = makeAnimated();
     const { selectedBill, setSelectedBill } = useSelectedBill()
@@ -22,6 +24,7 @@ const selector = () => {
 
            
             courceList[0].basic_cource = value.value
+            courceList[0].price = value.price
             
 
 
@@ -53,4 +56,4 @@ const selector = () => {
     )
 }
 
-export default selector;
+export default CourceSelector;

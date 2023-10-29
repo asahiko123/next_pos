@@ -91,6 +91,14 @@ export type ApiContext = {
 export type SelectorOptions = {
   value: string,
   label: string,
+  numberOfPeople: number | null,
+  price: number
+
+}
+
+export type PaymentOptions = {
+  value: string,
+  label: string,
 }
 
 export type CourceOptions = {

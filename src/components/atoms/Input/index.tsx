@@ -3,25 +3,26 @@ import styled, { css } from 'styled-components'
 /**
  * テキストインプット
  */
-const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean }>`
+const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean; width?: string }>`
   color: ${({ theme }) => theme.colors.inputText};
-  ${({ theme, hasBorder, hasError }) => {
+  ${({ theme, hasBorder, hasError, width }) => {
     if (hasBorder) {
       return css`
         border: 1px solid
           ${hasError ? theme.colors.danger : theme.colors.border};
         border-radius: 5px;
+        width: ${width};
       `
     } else {
       return css`
         border: none;
+        width: ${width};
       `
     }
   }}
   padding: 11px 12px 12px 9px;
   box-sizing: border-box;
   outline: none;
-  width: 100%;
   height: 38px;
   font-size: 16px;
   line-height: 19px;
