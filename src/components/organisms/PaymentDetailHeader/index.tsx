@@ -8,7 +8,6 @@ import { Bill } from "types"
 const HeaderRoot = styled.header`
   height: 88px;
   padding: ${({ theme }) => theme.small} 0px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   opacity:0.8;
 `
 

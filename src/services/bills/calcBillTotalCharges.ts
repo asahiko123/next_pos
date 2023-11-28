@@ -6,7 +6,8 @@ const calcBillTotalCharges = () => {
     (calcBillCharges({type: "serviceDrink"})?.serviceDrinkTotal ?? 0 )+
     (calcBillCharges({type: "order"})?.orderTotal ?? 0 )+
     (calcBillCharges({type: "bottle"})?.bottleTotal ?? 0 )+
-    (calcBillCharges({type: "nomination"})?.nominationTotal?? 0 )
+    (calcBillCharges({type: "nomination"})?.nominationTotal?? 0 )+
+    (calcBillCharges({type:"cource"})?.courceTotal)
 
     return BillCharge_All
 

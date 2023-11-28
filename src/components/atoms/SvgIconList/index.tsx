@@ -20,7 +20,7 @@ export const InvoicePreview = (props: SvgIconProps) => {
     return(
         // <Invoice {...props} />
         <Border>
-        <svg width="574" height="284" viewBox="0 0 574 284" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="500" height="210" viewBox="0 0 574 284" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="&#233;&#160;&#152;&#229;&#143;&#142;&#230;&#155;&#184;">
         <rect id="Rectangle 1" x="42.8895" y="114.158" width="515.527" height="37.5549" fill="#D9D9D9" stroke="black" stroke-width="0.426761"/>
         <g id="Rectangle 2">

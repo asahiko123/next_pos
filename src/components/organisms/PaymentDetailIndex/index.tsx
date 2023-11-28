@@ -22,18 +22,13 @@ const PaymentDetailIndex = ({
             flexDirection={{ base: 'column', md: 'column'}}>
                 
                     <CourceList bill={bill}/>
-                
-                
+
                     <ServiceDrinkList bill={bill}/>
                 
-
-                
                     <OrderList bill={bill}/>
-                
-                
+                            
                     <BottleList bill={bill} />
-                
-             
+                        
                     <NominationList  />
                 
         </Flex>

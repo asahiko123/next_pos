@@ -7,6 +7,7 @@ import calcBillCharges from "services/bills/calcBillCharges"
 import calcBillTotalCharges from "services/bills/calcBillTotalCharges"
 
 const FooterRoot = styled.footer`
+    
     height: 100px;
     padding: ${({ theme }) => theme.small} 0px;
     border-top: 1px solid ${ ({ theme }) => theme.colors.border};

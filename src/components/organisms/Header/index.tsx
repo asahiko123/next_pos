@@ -4,13 +4,14 @@
   import Text from 'components/atoms/Text'
   import Flex from 'components/layout/Flex'
   import { useAuthContext } from 'contexts/AuthContext'
-import SignOutButtonContainer from 'containers/SignOutButtonContainer'
-import Box from 'components/layout/Box'
-import Spinner from 'components/atoms/Spinner'
-import Link from 'next/link'
+  import SignOutButtonContainer from 'containers/SignOutButtonContainer'
+  import Box from 'components/layout/Box'
+  import Spinner from 'components/atoms/Spinner'
+  import Link from 'next/link'
+import Clock from 'components/atoms/Clock'
 
   const HeaderRoot = styled.header`
-    height: 88px;
+ 
     padding: ${({ theme }) => theme.small} 0px;
     border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   `
@@ -45,18 +46,18 @@ import Link from 'next/link'
       if (authUser) {
         return (
           <Flex flexDirection="row">
-            <ShapeImage
+            {/* <ShapeImage
                   shape="circle"
                   src={'https://placehold.jp/50x50.png'}
                   width={50}
                   height={50}
                   data-testid="profile-shape-image"
                   alt={''}
-                />
-            <Flex flexDirection="column">
+                /> */}
+            {/* <Flex flexDirection="column">
               <Text>{`${authUser.username}`}</Text>
               <Text>{`${authUser.description}`}</Text>
-            </Flex>            
+            </Flex>             */}
           </Flex>
         )
       }
@@ -92,19 +93,22 @@ import Link from 'next/link'
       }
     }
 
+
+
     return (
       <HeaderRoot>
-        <Flex paddingLeft={3} paddingRight={3} justifyContent="space-between">
+        <Flex paddingLeft={3} paddingRight={3} justifyContent="space-between" alignItems={"center"}>
           <Nav as="nav" height="56px" alignItems="center">
 
 
             <NavLink>
               
-              {headerRenderContent()}
+              {/* {headerRenderContent()} */}
+              
             
             </NavLink>     
           </Nav>
-
+          <Clock/>
           {signoutButton()}
         </Flex>
       </HeaderRoot>

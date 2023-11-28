@@ -10,8 +10,8 @@ const InvoiceBoard = () => {
             <Flex flexDirection="column">
                 <Flex flexDirection="row">
                 <PaymentSelector/>
-                <Input width={"50%"}></Input>
-                <Input width={"50%"}></Input>
+                <Input width={"100px"}></Input>
+                <Input width={"100px"}></Input>
                 </Flex>
             </Flex>
         </Box>

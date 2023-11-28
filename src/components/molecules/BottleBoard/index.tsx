@@ -49,14 +49,14 @@ const bottleBoard = () => {
 
         console.log(findIndex)
 
+        const bottleListItem = [...bottleList]
+
         if(findIndex === -1){
             console.log('見つかりません')
         }
 
-        const bottleListItem = [...bottleList]
-
+        
         bottleListItem.splice(findIndex,1)
-
 
         const updatedBill = {
             ...selectedBill,

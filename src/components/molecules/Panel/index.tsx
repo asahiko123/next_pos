@@ -7,20 +7,16 @@ import { componentMap } from "utils/data"
 
 const PanelContainer = styled.div`
 position: relative;
-width: 70%;
+width: 90%;
 height: 70%;
 background-color: ${themes.shadows.backgroundColor};
-// border-radius: $radius;
 overflow: hidden;
-> header{
-//    padding: 0 $screen-padding;
-  }
+
 > div{
    margin: 0 ${themes.spaces.medium};
    padding: ${themes.spaces.large};
-//   border-radius: $radius/2;
-//   box-shadow: $shadow-inset;
-  background-color: darken(${themes.shadows.backgroundColor}, 3);
+   background-color: darken(${themes.shadows.backgroundColor}, 3);
+   
 }
 > footer {
   display: grid;
@@ -33,11 +29,9 @@ overflow: hidden;
      width: 200px;
      padding: ${themes.spaces.small} ${themes.spaces.small};
     &[type="button"]{
-    //   color: $alert-color;
        background-color: darken(${themes.shadows.backgroundColor},3);
       &:hover:after{
         content: '';
-        // border: 2px solid $alert-color;
       }
     }
   }
