@@ -5,10 +5,14 @@ import Text from 'components/atoms/Text'
 import { useAuthContext } from 'contexts/AuthContext'
 
 const PaymentRoot = styled.div`
-    height: 100%;
+    height: 649px;
     width: 100%;
     background-color: #191970;
     color: #FFFFFF;
+
+    @media screen and (min-width: 650px) {
+        overflow-y: scroll
+    }
 `
 
 const PaymentDetail = ({
