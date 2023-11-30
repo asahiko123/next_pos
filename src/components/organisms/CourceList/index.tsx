@@ -36,6 +36,7 @@ const CourceList = ({
                             as="span"
                             fontSize={{ base: 'small', md: 'medium'}}
                             margin={{ base: 'small', md: 'medium'}}
+                            key={`${bill.order.raitenId}-${index}` || 'undefined'}
                         >
                             { cource.basic_cource }
                         </Text>
@@ -44,6 +45,7 @@ const CourceList = ({
                             as="span"
                             fontSize={{ base: 'small', md: 'medium'}}
                             margin={{ base: 'small', md: 'medium'}}
+                            key={`${bill.order.raitenId}-${index}` || 'undefined'}
                         >
                            { cource.price }
                         </Text>
@@ -57,7 +59,8 @@ const CourceList = ({
             <CourceBoarder/>
             <Flex flexDirection="row">
 
-                <Text as="h4" >
+                <Text as="h4"
+                    margin={{ base: 'small', md: 'medium'}}> 
                   { '基本料金' }
                 </Text>
 
