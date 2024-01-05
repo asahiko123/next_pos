@@ -3,7 +3,7 @@ export type Condition = 'new' | 'used'
 
 
 export type User = {
-  id: number
+  id: number 
   username: string
   displayName?: string
   email?: string
@@ -12,73 +12,73 @@ export type User = {
 }
 
 export type Bill = {
-  id: number
-  table: string,
-  raitenId: number
-  dayId: number,
-  description: string,
-  category: string,
-  imageUrl?: string,
-  price: number,
-  condition: string,
-  entryTime: string,
-  closingTime: string,
+  id: number | null
+  table: string | null,
+  raitenId: number | null
+  dayId: number | null,
+  description: string | null,
+  category: string | null,
+  imageUrl?: string | null, 
+  price: number | null,
+  condition: string | null,
+  entryTime: string | null,
+  closingTime: string | null,
   order: {
-    raitenId?: number,
-    dayId?: number,
+    raitenId?: number | null,
+    dayId?: number | null,
     serviceDrinkList?:
         {
-            id: number,
-            drink: string,
-            hostess_id: number,
-            price: number
+            id: number | null,
+            drink: string | null,
+            hostess_id: number | null,
+            price: number | null
         }[]
     ,
     orderList?: 
         {
-            id: number,
-            drink: string,
-            hostess_id: number,
-            price: number
+            id: number | null,
+            drink: string | null,
+            hostess_id: number | null,
+            price: number | null
         }[]
     ,
     bottleList?: 
         {   
-            id: number,
-            bottle: string,
-            hostess_id: number,
-            price : number
+            id: number | null,
+            bottle: string | null,
+            hostess_id: number | null,
+            price : number | null
         }[]
     ,
     nominationList?:
         {
-            id: number,
-            nomination_type_id: number,
-            hostess_id: number,
-            price: number
+            id: number | null,
+            nomination_type_id: number | null,
+            hostess_id: number | null,
+            price: number | null
         }[]
     ,
     courceList:
         {
-            id:number,
-            basic_cource: string,
+            id:number | null,
+            basic_cource: string | null,
             numberOfPeople: number | null,
-            price: number,
+            price: number | null,
             extensionCourceList: {
-              id: number,
-              extension_cource: string,
-              price: number
+              id: number | null,
+              extension_cource: string | null,
+              price: number | null
             }[],      
         }[]
     
   },
   owner: {
-    id: number,
-    username: string,
-    displayName: string,
-    email: string,
-    profileImageUrl: string,
-    description: string
+    id: number | null,
+    username: string | null,
+    displayName: string | null,
+    email: string | null,
+    profileImageUrl: string| null,
+    description: string | null
   }
   
 }

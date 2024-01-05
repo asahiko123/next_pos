@@ -82,6 +82,9 @@ const InvoiceBoard = () => {
                         <Text width={"150px"} height={"40px"} backgroundColor={"gray"} color={"white"} marginBottom={"1px"} paddingLeft={"5px"}>小計</Text>
                     </Flex>
                     <Flex flexDirection={"row"}>
+                        <Text width={"150px"} height={"40px"} backgroundColor={"gray"} color={"white"} marginBottom={"1px"} paddingLeft={"5px"}>消費税</Text>
+                    </Flex>
+                    <Flex flexDirection={"row"}>
                         <Text width={"150px"} height={"40px"} backgroundColor={"gray"} color={"white"} marginBottom={"1px"} paddingLeft={"5px"}>合計</Text>
                         <Text width={"180px"} fontWeight={"bold"}>{ bill_total }</Text>
                     </Flex>
