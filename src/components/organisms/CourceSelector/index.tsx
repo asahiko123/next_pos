@@ -16,16 +16,23 @@ const CourceSelector = () => {
 
     const handleChange= (value: any) => {
 
+        const selectedOption = selectorOptions.find((el) => {
+            console.log(el.value,value.value)
+            
+            return el.value === value.value
+        })
 
-        if(selectedBill?.order.courceList){
+        console.log(selectedOption)
 
-            console.log(selectedBill.order)
+        if(selectedBill?.order.courceList && selectedOption){
+
+            
 
             const courceList = selectedBill.order.courceList
 
            
-            courceList[0].basic_cource = value.value
-            courceList[0].price = value.price
+            courceList[0].basic_cource = selectedOption.value
+            courceList[0].price = selectedOption.price
             
 
 

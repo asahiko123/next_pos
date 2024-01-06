@@ -49,6 +49,15 @@ const CourceList = ({
                         >
                            { cource.price }
                         </Text>
+
+                        <Text 
+                            as="span"
+                            fontSize={{ base: 'small', md: 'medium'}}
+                            margin={{ base: 'small', md: 'medium'}}
+                            key={`${bill.order.raitenId}-${index}` || 'undefined'}
+                        >
+                           { `${cource.numberOfPeople} 名様` }
+                        </Text>
                         
                     </Flex>
                     

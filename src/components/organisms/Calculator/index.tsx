@@ -46,10 +46,33 @@ const calculator = () => {
     const { selectedBill, setSelectedBill } = useSelectedBill()
     const { updateBill } = useBillCardListContext()
 
+    const handleChange = (value: number) => {
+
+        if(selectedBill?.order.courceList){
+
+            const courceList = selectedBill.order.courceList
+
+            courceList[0].numberOfPeople = value
+
+            const updatedBill = { 
+                ...selectedBill,
+                order: {
+                    ...selectedBill.order,
+                    courceList: courceList
+                }
+            }
+
+            updateBill(updatedBill)
+            setSelectedBill(updatedBill)
+        }
+    } 
+
     
     const keyPressed = (key: number) => {
         if(operator === null){
             setInput(input*10+key)
+            handleChange(key)
+
         }else{
             setAdditionalInput(input*10+key)
         }
