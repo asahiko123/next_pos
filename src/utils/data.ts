@@ -1,12 +1,8 @@
 
 import bottleBoard from "components/molecules/BottleBoard"
-import nominationList from "components/organisms/NominationList"
 import orderBoard from "components/molecules/OrderBoard"
 import calculator from "components/organisms/Calculator"
-import menuBoard from "components/organisms/OrderMenuBoard"
 import nominationBoard from "components/organisms/NominationBoard"
-import OrderList from "components/organisms/OrderList"
-import selector from 'components/organisms/CourceSelector'
 import { CalculatorKeysOptions, ComponentMap, CourceOptions, FooterMenuOptions, HostessOptions, MenuBoardKeysOptions, NominationOptions, Order, PaymentOptions, SelectorOptions} from "types"
 import BottleMenuBoard from "components/organisms/BottleMenuBoard"
 import OrderMenuBoard from "components/organisms/OrderMenuBoard"
@@ -14,6 +10,8 @@ import NominationMenuBoard from "components/organisms/NominationMenuBoard"
 import InvoicePreview from "components/organisms/InvoicePreview"
 import InvoiceBoard from "components/organisms/InvoiceBoard"
 import cource_selector from "components/organisms/CourceSelector"
+import serviceDrinkMenuBoard from "components/organisms/ServiceDrinkMenuBoard"
+import ServiceDrinkBoard from "components/organisms/ServiceDrinkBoard"
 
 
 export const selectorOptions: SelectorOptions[] = [
@@ -63,6 +61,13 @@ export const orderBoardKeys: MenuBoardKeysOptions[] = [
     { order: '酎ハイ',price: 1500}
 ] 
 
+
+export const serviceDrinkKeys: MenuBoardKeysOptions[]= [
+    { order:'キャストドリンク1000', price: 1000},
+    { order: 'キャストドリンク2000', price: 2000},
+    { order: 'キャストドリンク1500', price: 1500},
+]
+
 export const bottleBoardKeys: MenuBoardKeysOptions[] = [
     { order: 'いいちこ',price: 1000},
     { order: '黒霧島',price: 2000},
@@ -84,6 +89,7 @@ export const bottleBoardKeys: MenuBoardKeysOptions[] = [
 export const footerMenu: FooterMenuOptions[] = [
     { value: '基本コース選択'},
     { value: 'オーダー'},
+    { value: 'ドリンク'},
     { value: '指名'},
     { value: 'ボトル'},
     { value: '領収'},
@@ -153,7 +159,15 @@ export const componentMap: ComponentMap[] = [
             { type: 'nominationBoard',component: InvoicePreview},
             { type: 'nominationList',component: InvoiceBoard}
         ]
-    }
+    },
+    {
+        type: 'ドリンク',
+        components: [
+            { type: 'serviceDrinkBoard',component: serviceDrinkMenuBoard},
+            { type: 'serviceDrinkList',component: ServiceDrinkBoard}
+        ]
+    },
+
     
     
 ]

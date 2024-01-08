@@ -21,7 +21,7 @@ const BillCardListContainer = ({
  
 
   useEffect(() => {
-    console.log(selectedBill)
+    
   },[selectedBill])
 
   /* 伝票一覧 */

@@ -1,64 +1,69 @@
+import Box from "components/layout/Box"
 import Flex from "components/layout/Flex"
 import Text from 'components/atoms/Text'
 import { Bill } from "types"
 import styled from "styled-components"
 import calcBillCharges from "services/bills/calcBillCharges"
 
-const ServiceDrinkBoarder = styled.div`
+const OrderBoarder = styled.div`
   padding: ${({ theme }) => theme.small} 0px;
   width: 50%;
   border-bottom: 1px solid  ${({ theme }) => theme.colors.border};
   opacity:0.5;
 `
 
-
 interface ServiceDrinkListProps {
     bill: Bill | null
 }
-const ServiceDrinkList = ({
+const orderList = ({
     bill
 }: ServiceDrinkListProps) => {
+    
+   
     return(
-        <Flex flexDirection={{ base: 'column', md: 'column'}} >
+        <Flex flexDirection={{ base: 'column', md: 'column'}}>
             
-                {
-                    bill?.order?.serviceDrinkList?.map((serviceDrink,index) => (
-                        <Flex flexDirection="row">
-                        <Text
-                            as="span"
-                            fontSize={{ base: 'small' ,md: 'medium'}}
-                            margin={{ base: 'small' ,md: 'medium'}}
-                            key={`${bill.order.raitenId}-${index}` || 'undefined'}>
-                                { serviceDrink.drink }
-                        </Text>
+            { 
+                bill?.order?.serviceDrinkList?.map((order,index) => (
 
-                        <Text
-                            as="span"
-                            fontSize={{ base: 'small' ,md: 'medium'}}
-                            margin={{ base: 'small' ,md: 'medium'}}
-                            key={`${bill.order.raitenId}-${index}` || 'undefined'}>
-                                { serviceDrink.price }
-                        </Text>
-                        </Flex>
-                    ))
-                }
-                <ServiceDrinkBoarder />
-                <Flex>
+                    <Flex flexDirection="row">
                     
                     <Text 
-                        as="h4"
-                        margin={{ base: 'small', md: 'medium'}}>
-                        { 'ドリンク料金' } 
+                        as="span"
+                        fontSize={{ base: 'small', md: 'medium'}}
+                        margin={{ base: 'small', md: 'medium'}}
+                        key={`${bill.order.raitenId}-${index}` || 'undefined'}
+                    >
+                        { order.drink }
                     </Text>
 
-                    <Text
-                    margin={{ base: 'small', md: 'medium'}}>
-                        { calcBillCharges({type: "serviceDrink"})?.serviceDrinkTotal }
+                    <Text 
+                    as="span"
+                    fontSize={{ base: 'small', md: 'medium'}}
+                    margin={{ base: 'small', md: 'medium'}}
+                    key={`${bill.order.raitenId}-${index}` || 'undefined'}
+                    >
+                    { order.price }
                     </Text>
-                </Flex>
+
+                    </Flex>
+                
+                ))
+            }
+            <OrderBoarder />
+            <Flex flexDirection="row">
+            <Text as="h4"
+                margin={{ base: 'small', md: 'medium'}}>
+                { 'ドリンク料金' }
+            </Text>
+            <Text
+                margin={{ base: 'small', md: 'medium'}}>
+                { calcBillCharges({type: "order"})?.orderTotal }
+            </Text>
+            </Flex>
         </Flex>
     )
 }
 
 
-export default ServiceDrinkList
+export default orderList

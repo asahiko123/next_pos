@@ -206,10 +206,10 @@ export type CourceListKeyProps = {
 
 
 export type serviceDrinkKeysProps = {
-  id: number,
-  drink: string,
-  hostess_id: number,
-  price: number
+  id: number | null,
+  drink: string | null,
+  hostess_id: number | null,
+  price: number | null
 }
 
 export type ErrorMassageProps = {

@@ -3,9 +3,6 @@ import { selectorOptions } from 'utils/data'
 import makeAnimated from 'react-select/animated'
 import { useSelectedBill } from 'contexts/SelectedBillContext';
 import { useBillCardListContext } from 'contexts/BillCardListContext';
-import { useState } from 'react';
-import { Bill } from 'types';
-
 
 
 const CourceSelector = () => {
@@ -17,12 +14,9 @@ const CourceSelector = () => {
     const handleChange= (value: any) => {
 
         const selectedOption = selectorOptions.find((el) => {
-            console.log(el.value,value.value)
             
             return el.value === value.value
         })
-
-        console.log(selectedOption)
 
         if(selectedBill?.order.courceList && selectedOption){
 
@@ -30,7 +24,7 @@ const CourceSelector = () => {
 
             const courceList = selectedBill.order.courceList
 
-           
+        
             courceList[0].basic_cource = selectedOption.value
             courceList[0].price = selectedOption.price
             
@@ -46,6 +40,10 @@ const CourceSelector = () => {
 
             updateBill(updatedBill)
             setSelectedBill(updatedBill)
+
+            console.log(selectedBill)
+
+
         }else{
 
             if(!selectedBill?.id){
